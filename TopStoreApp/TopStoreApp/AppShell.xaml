@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TopStoreApp.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TopStoreApp.Pages"
+    mc:Ignorable="d">
+    <TabBar>
+        <pages:PeoplePage Title="聯絡人" />
+        <pages:GoodsPage Title="物品項" />
+        <pages:OrdersPage Title="訂單" />
+        <pages:SettingsPage Title="設定" />
+    </TabBar>
+</Shell>
