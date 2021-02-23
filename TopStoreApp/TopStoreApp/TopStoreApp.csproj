@@ -19,13 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Xam.Plugin.BaseBindingLibrary" Version="1.0.1.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Update="Pages\GoodsPage.xaml">
