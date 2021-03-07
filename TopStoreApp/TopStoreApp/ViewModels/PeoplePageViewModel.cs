@@ -20,7 +20,7 @@ namespace TopStoreApp.ViewModels
 
         public PeoplePageViewModel()
         {
-            People = Utilities.MockData.GetPeople();
+            People = Utilities.MockData.People;
         }
 
         public ICommand AddCommand
@@ -29,7 +29,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}");
+                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage");
                 });
             }
         }

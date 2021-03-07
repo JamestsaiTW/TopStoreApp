@@ -11,10 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\FontAwesome5.otf" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Assets\FontAwesome5.otf" />
   </ItemGroup>
 
