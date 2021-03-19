@@ -37,9 +37,9 @@ namespace TopStoreApp.ViewModels
         {
             get
             {
-                return new Command<string>((arg) =>
+                return new Command<Models.Person>(async (person) =>
                 {
-
+                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage?personId={person.Id}");
                 });
             }
         }

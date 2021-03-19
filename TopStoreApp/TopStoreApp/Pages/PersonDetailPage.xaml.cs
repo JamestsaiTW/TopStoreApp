@@ -16,5 +16,16 @@ namespace TopStoreApp.Pages
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var vm = BindingContext as ViewModels.PersonDetailPageViewModel;
+            if (vm.PersonId > 0)
+                vm.EditPerson = (from person in Utilities.MockData.People
+                                 where vm.PersonId == person.Id
+                                 select person).FirstOrDefault();
+        }
     }
 }

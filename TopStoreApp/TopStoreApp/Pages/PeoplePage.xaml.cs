@@ -16,5 +16,12 @@ namespace TopStoreApp.Pages
         {
             InitializeComponent();
         }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var vm = BindingContext as ViewModels.PeoplePageViewModel;
+            vm.EditCommand.Execute(e.Item);
+            (sender as ListView).SelectedItem = null;
+        }
     }
 }

@@ -6,6 +6,7 @@ using Xamarin.Forms;
 
 namespace TopStoreApp.ViewModels
 {
+    [QueryProperty("PersonId", "personId")]
     public class PersonDetailPageViewModel : BasePageViewModel
     {
         private Models.Person _editPerson;
@@ -15,6 +16,15 @@ namespace TopStoreApp.ViewModels
             get { return _editPerson; }
             set { OnPropertyChanged<Models.Person>(ref _editPerson, value); }
         }
+
+        private int _personId;
+
+        public int PersonId
+        {
+            get { return _personId; }
+            set { _personId = (int)value; }
+        }
+
 
         public PersonDetailPageViewModel()
         {
@@ -33,6 +43,5 @@ namespace TopStoreApp.ViewModels
                 });
             }
         }
-
     }
 }
