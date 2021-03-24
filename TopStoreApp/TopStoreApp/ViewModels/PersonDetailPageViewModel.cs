@@ -6,6 +6,7 @@ using Xamarin.Forms;
 
 namespace TopStoreApp.ViewModels
 {
+    [QueryProperty("IsEditQueryString", "isEdit")]
     [QueryProperty("PersonId", "personId")]
     public class PersonDetailPageViewModel : BasePageViewModel
     {
@@ -25,6 +26,22 @@ namespace TopStoreApp.ViewModels
             set { _personId = (int)value; }
         }
 
+        public string IsEditQueryString
+        {
+            set
+            {
+                IsEdit = bool.Parse(value);
+            }
+        }
+
+        private bool _isEdit;
+
+        public bool IsEdit
+        {
+            get { return _isEdit; }
+            set { OnPropertyChanged<bool>(ref _isEdit, value); }
+        }
+
 
         public PersonDetailPageViewModel()
         {
@@ -37,9 +54,12 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    Utilities.MockData.People.Add(EditPerson);
-                    await Shell.Current.DisplayAlert("通知", "儲存成功!", "OK");
-                    await Shell.Current.Navigation.PopAsync();
+                    if(IsEdit)
+                    {
+                        Utilities.MockData.People.Add(EditPerson);
+                        await Shell.Current.DisplayAlert("通知", "新增成功!", "OK");
+                    }
+                    IsEdit = !IsEdit;
                 });
             }
         }

@@ -29,7 +29,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage");
+                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage?isEdit=true");
                 });
             }
         }
@@ -39,7 +39,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command<Models.Person>(async (person) =>
                 {
-                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage?personId={person.Id}");
+                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage?isEdit=false&personId={person.Id}");
                 });
             }
         }

@@ -8,7 +8,7 @@
         <viewmodels:PersonDetailPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding SaveCommand}" Text="儲存" />
+        <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
@@ -21,7 +21,7 @@
             <Entry
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Start"
-                IsEnabled="False"
+                IsEnabled="{Binding IsEdit}"
                 Placeholder="請輸入名稱..."
                 Text="{Binding EditPerson.Name}"
                 VerticalOptions="Center"
@@ -35,7 +35,7 @@
             <Entry
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Start"
-                IsEnabled="False"
+                IsEnabled="{Binding IsEdit}"
                 Keyboard="Telephone"
                 Placeholder="請輸入電話..."
                 Text="{Binding EditPerson.Tel}"
@@ -50,7 +50,7 @@
             <Entry
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Start"
-                IsEnabled="False"
+                IsEnabled="{Binding IsEdit}"
                 Keyboard="Email"
                 Placeholder="請輸入電子郵件..."
                 Text="{Binding EditPerson.Email}"
@@ -65,7 +65,7 @@
             <Entry
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Start"
-                IsEnabled="False"
+                IsEnabled="{Binding IsEdit}"
                 Placeholder="請輸入地址..."
                 Text="{Binding EditPerson.Address}"
                 VerticalOptions="Center"

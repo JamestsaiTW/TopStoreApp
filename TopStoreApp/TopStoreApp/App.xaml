@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:valueconveters="clr-namespace:TopStoreApp.Utilities.ValueConveters"
              x:Class="TopStoreApp.App">
     <Application.Resources>
-
+        <valueconveters:BoolToTwoStringVauleConveter x:Key="DetailPageToolBarItemDisplayText" />
     </Application.Resources>
 </Application>
