@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using TopStoreApp.Models;
 
 namespace TopStoreApp.Utilities
 {
@@ -16,5 +17,10 @@ namespace TopStoreApp.Utilities
                 new Models.Person {Id = 5, Name = "Mandy Q" , Address = "台南市西區中正路100號" , Tel = "06-66633311" , Email= "Mandyq@abc.com.tw"},
             };
 
+        internal static void EditPeople(Person person)
+        {
+            if (person.Id > People[People.Count - 1].Id)
+                People.Add(person);
+        }
     }
 }

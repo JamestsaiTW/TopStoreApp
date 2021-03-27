@@ -45,7 +45,10 @@ namespace TopStoreApp.ViewModels
 
         public PersonDetailPageViewModel()
         {
-            EditPerson = new Models.Person();
+            EditPerson = new Models.Person()
+            {
+                Id = Utilities.MockData.People[Utilities.MockData.People.Count - 1].Id + 1,
+            };
         }
 
         public ICommand SaveCommand
@@ -56,8 +59,8 @@ namespace TopStoreApp.ViewModels
                 {
                     if(IsEdit)
                     {
-                        Utilities.MockData.People.Add(EditPerson);
-                        await Shell.Current.DisplayAlert("通知", "新增成功!", "OK");
+                        Utilities.MockData.EditPeople(EditPerson);
+                        await Shell.Current.DisplayAlert("通知", "儲存成功!", "OK");
                     }
                     IsEdit = !IsEdit;
                 });
