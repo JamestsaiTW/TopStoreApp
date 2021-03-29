@@ -43,16 +43,5 @@ namespace TopStoreApp.ViewModels
                 });
             }
         }
-        public ICommand DeleteCommand
-        {
-            get
-            {
-                return new Command<string>((arg) =>
-                {
-
-                });
-            }
-        }
-
     }
 }

@@ -15,10 +15,17 @@
             <ListView
                 CachingStrategy="RecycleElement"
                 HasUnevenRows="True"
-                ItemsSource="{Binding People}" ItemTapped="ListView_ItemTapped">
+                ItemTapped="ListView_ItemTapped"
+                ItemsSource="{Binding People}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Command="{Binding DeleteCommand}"
+                                    IsDestructive="True"
+                                    Text="刪除" />
+                            </ViewCell.ContextActions>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
