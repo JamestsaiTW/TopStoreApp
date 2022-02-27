@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -7,7 +8,7 @@ using Xamarin.Forms;
 namespace TopStoreApp.ViewModels
 {
     [QueryProperty("IsEditQueryString", "isEdit")]
-    [QueryProperty("PersonId", "personId")]
+    [QueryProperty(nameof(PersonId), "personId")]
     public class PersonDetailPageViewModel : BasePageViewModel
     {
         private Models.Person _editPerson;
@@ -18,12 +19,15 @@ namespace TopStoreApp.ViewModels
             set { OnPropertyChanged<Models.Person>(ref _editPerson, value); }
         }
 
-        private int _personId;
-
         public int PersonId
         {
-            get { return _personId; }
-            set { _personId = (int)value; }
+            set
+            {
+                int personId = value;
+                if (personId > 0)
+                    EditPerson = Utilities.MockData.People
+                        .FirstOrDefault((person) => { return person.Id == personId; });
+            }
         }
 
         public string IsEditQueryString
