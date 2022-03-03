@@ -13,6 +13,7 @@
     <ContentPage.Content>
         <StackLayout>
             <ListView
+                x:Name="mainListView"
                 CachingStrategy="RecycleElement"
                 HasUnevenRows="True"
                 ItemTapped="ListView_ItemTapped"
@@ -22,7 +23,8 @@
                         <ViewCell>
                             <ViewCell.ContextActions>
                                 <MenuItem
-                                    Command="{Binding DeleteCommand}"
+                                    Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference mainListView}}"
+                                    CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                                     IsDestructive="True"
                                     Text="刪除" />
                             </ViewCell.ContextActions>

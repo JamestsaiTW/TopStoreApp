@@ -32,17 +32,5 @@
             set { OnPropertyChanged<string>(ref _address, value); }
         }
 
-        public System.Windows.Input.ICommand DeleteCommand
-        {
-            get
-            {
-                return new Xamarin.Forms.Command(async () =>
-                {
-                    var isOk = await Xamarin.Forms.Shell.Current.DisplayAlert("警告", $"確定\"{Name}\"刪除?", "確定", "取消");
-                    if (isOk)
-                        Utilities.MockData.People.Remove(this);
-                });
-            }
-        }
     }
 }

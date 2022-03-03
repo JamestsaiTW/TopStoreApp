@@ -43,5 +43,19 @@ namespace TopStoreApp.ViewModels
                 });
             }
         }
+
+
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return new Command<Models.Person>(async (person) =>
+                {
+                    var isOk = await Shell.Current.DisplayAlert("警告", $"確定\"{person.Name}\"刪除?", "確定", "取消");
+                    if (isOk)
+                        Utilities.MockData.People.Remove(person);
+                });
+            }
+        }
     }
 }
