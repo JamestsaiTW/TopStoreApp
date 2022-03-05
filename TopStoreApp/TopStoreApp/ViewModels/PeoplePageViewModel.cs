@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -57,5 +58,24 @@ namespace TopStoreApp.ViewModels
                 });
             }
         }
+
+
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new Command<string>(async (keyward) =>
+                {
+                    var searchResult = Utilities.MockData.People.Where((person) => person.Name.ToLower().Contains(keyward.ToLower()));
+                    if (searchResult.Count() != 0)
+                    {
+                        People = new ObservableCollection<Person>(searchResult);
+                        return;
+                    }
+                    await Shell.Current.DisplayAlert("通知", "查無相關聯絡人的資料", "OK");
+                });
+            }
+        }
+
     }
 }
