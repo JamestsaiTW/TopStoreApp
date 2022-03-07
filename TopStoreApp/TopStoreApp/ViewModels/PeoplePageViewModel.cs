@@ -64,9 +64,9 @@ namespace TopStoreApp.ViewModels
         {
             get
             {
-                return new Command<string>(async (keyward) =>
+                return new Command<string>(async (keyword) =>
                 {
-                    var searchResult = Utilities.MockData.People.Where((person) => person.Name.ToLower().Contains(keyward.ToLower()));
+                    var searchResult = Utilities.MockData.People.Where((person) => person.Name.ToLower().Contains(keyword.ToLower()));
                     if (searchResult.Count() != 0)
                     {
                         People = new ObservableCollection<Person>(searchResult);
