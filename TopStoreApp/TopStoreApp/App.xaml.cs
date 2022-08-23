@@ -11,7 +11,8 @@ namespace TopStoreApp
         {
             InitializeComponent();
 
-            DataService = Utilities.MockData.Instance;
+            var isDbService = Xamarin.Essentials.Preferences.Get("UserSwitchToDataService", false);
+            DataService = isDbService ? Services.DbService.Instance : Utilities.MockData.Instance;
 
             MainPage = new AppShell();
         }
