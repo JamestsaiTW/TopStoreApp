@@ -21,7 +21,7 @@ namespace TopStoreApp.ViewModels
 
         public PeoplePageViewModel()
         {
-            People = Utilities.MockData.People;
+            People = Services.DbService.Instance.GetPeople();
         }
 
         public ICommand AddCommand
