@@ -12,6 +12,12 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
+            <SearchBar
+                Placeholder="請輸入要搜尋的聯絡人姓名..."
+                SearchCommand="{Binding SearchCommand}"
+                SearchCommandParameter="{Binding Source={RelativeSource Self}, Path=Text}"
+                TextChanged="SearchBar_TextChanged"
+                TextTransform="Lowercase" />
             <ListView
                 x:Name="mainListView"
                 CachingStrategy="RecycleElement"

@@ -30,22 +30,21 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await Shell.Current.GoToAsync("PersonDetailPage?isEdit=true");
+                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage?isEdit=true");
                 });
             }
         }
-
-
         public ICommand EditCommand
         {
             get
             {
-                return new Command<Models.Person>(async (person) =>
+                return new Command<Person>(async (person) =>
                 {
-                    await Shell.Current.GoToAsync($"PersonDetailPage?isEdit=true&personId={person.Id}");
+                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage?isEdit=false&personId={person.Id}");
                 });
             }
         }
+
         public ICommand CallTelCommand
         {
             get
@@ -68,6 +67,27 @@ namespace TopStoreApp.ViewModels
                     {
                         Utilities.MockData.People.Remove(person);
                     }
+                });
+            }
+        }
+
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new Command<string>(async (keyword) =>
+                {
+                    var results = new ObservableCollection<Person>(Utilities.MockData.People.Where(
+                                            (person) =>
+                                            {
+                                                return person.Name.ToLower().Contains(keyword.ToLower());
+                                            }));
+                    if (results.Count != 0)
+                    {
+                        People = results;
+                        return;
+                    }
+                    await Shell.Current.DisplayAlert("通知", "查無相關聯絡人", "OK");
                 });
             }
         }

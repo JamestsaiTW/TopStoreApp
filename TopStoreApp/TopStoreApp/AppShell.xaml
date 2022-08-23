@@ -4,30 +4,29 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:local="clr-namespace:TopStoreApp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:TopStoreApp.Pages"
     mc:Ignorable="d">
     <TabBar>
-        <ShellContent Title="聯絡人" Route="People">
+        <ShellContent Title="聯絡人">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FA5" Glyph="&#xf2bd;" />
             </ShellContent.Icon>
             <pages:PeoplePage Title="聯絡人" />
         </ShellContent>
-        <ShellContent Title="物品項" Route="Goods">
+        <ShellContent Title="物品項">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FA5" Glyph="&#xf1ea;" />
             </ShellContent.Icon>
             <pages:GoodsPage Title="物品項" />
         </ShellContent>
-        <ShellContent Title="訂單" Route="Orders">
+        <ShellContent Title="訂單">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FA5" Glyph="&#xf022;" />
             </ShellContent.Icon>
             <pages:OrdersPage Title="訂單" />
         </ShellContent>
-        <ShellContent Title="設定" Route="Settings">
+        <ShellContent Title="設定">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FA5" Glyph="&#xf185;" />
             </ShellContent.Icon>

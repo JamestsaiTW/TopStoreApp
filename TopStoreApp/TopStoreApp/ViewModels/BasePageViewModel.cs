@@ -13,5 +13,6 @@ namespace TopStoreApp.ViewModels
             get { return _isConnected; }
             set { OnPropertyChanged<bool>(ref _isConnected, value); }
         }
+
     }
 }

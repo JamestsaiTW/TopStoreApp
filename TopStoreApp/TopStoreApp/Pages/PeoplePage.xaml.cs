@@ -23,5 +23,14 @@ namespace TopStoreApp.Pages
             vm.EditCommand.Execute(e.Item);
             (sender as ListView).SelectedItem = null;
         }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var vm = BindingContext as ViewModels.PeoplePageViewModel;
+            if (e.NewTextValue?.Length == 0 && e.OldTextValue?.Length > 0)
+            {
+                vm.SearchCommand.Execute(string.Empty);
+            }
+        }
     }
 }

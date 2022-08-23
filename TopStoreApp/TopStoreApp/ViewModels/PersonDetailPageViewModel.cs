@@ -19,16 +19,6 @@ namespace TopStoreApp.ViewModels
             set { OnPropertyChanged<Models.Person>(ref _editPerson, value); }
         }
 
-        public int PersonId
-        {
-            set
-            {
-                int personId = value;
-                if (personId > 0)
-                    EditPerson = Utilities.MockData.People.FirstOrDefault((person) => { return person.Id == personId; });
-            }
-        }
-
         private bool _isEdit;
 
         public bool IsEdit
@@ -45,6 +35,16 @@ namespace TopStoreApp.ViewModels
             }
         }
 
+        public int PersonId
+        {
+            set
+            {
+                int personId = value;
+                if (personId > 0)
+                    EditPerson = Utilities.MockData.GetPerson(personId);
+            }
+        }
+
         public PersonDetailPageViewModel()
         {
             EditPerson = Utilities.MockData.NewPerson();
@@ -56,13 +56,13 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    if (IsEdit)
+                    if(IsEdit)
                     {
-                        Utilities.MockData.People.Add(EditPerson);
-                        var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功", "返回聯絡人", "再檢視此筆資料");
-
+                        Utilities.MockData.EditPeople(EditPerson);
+                        var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
+                                                                            "返回聯絡人列表", "再檢視此筆資料");
                         if (isBack)
-                            await Shell.Current.GoToAsync("..");
+                            await Shell.Current.Navigation.PopAsync();
                     }
                     IsEdit = !IsEdit;
                 });

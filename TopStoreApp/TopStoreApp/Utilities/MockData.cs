@@ -8,7 +8,6 @@ namespace TopStoreApp.Utilities
 {
     public class MockData
     {
-
         public static ObservableCollection<Models.Person> People = new ObservableCollection<Models.Person>()
             {
                 new Models.Person {Id = 1, Name = "James Tsai" , Address = "台北市信義區忠孝東路100號" , Tel = "02-22233311" , Email= "Jamestsai@abc.com.tw"},
@@ -19,8 +18,8 @@ namespace TopStoreApp.Utilities
             };
 
         internal static Models.Person GetPerson(int id)
-        { 
-            return People.FirstOrDefault((person) => person.Id == id);
+        {
+            return People.FirstOrDefault((person) => { return person.Id == id; });
         }
 
         internal static Models.Person NewPerson()
@@ -28,10 +27,10 @@ namespace TopStoreApp.Utilities
             return new Models.Person() { Id = People.Last().Id + 1 };
         }
 
-        internal static void EditPerson(Models.Person person)
+        internal static void EditPeople(Models.Person person)
         {
-            if(person.Id > People.Last().Id)
-                People.Add(person); 
+            if (person.Id > People.Last().Id)
+                People.Add(person);
         }
     }
 }
