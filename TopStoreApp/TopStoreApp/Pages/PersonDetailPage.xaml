@@ -26,6 +26,7 @@
                 Text="{Binding EditPerson.Name}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
+            <Label x:Name="NameError" IsVisible="False" TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -41,6 +42,7 @@
                 Text="{Binding EditPerson.Tel}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
+            <Label x:Name="TelError" IsVisible="False" TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -56,6 +58,7 @@
                 Text="{Binding EditPerson.Email}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
+            <Label x:Name="EmailError" IsVisible="False" TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -70,6 +73,7 @@
                 Text="{Binding EditPerson.Address}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
+            <Label x:Name="AddressError" IsVisible="False" TextColor="Red" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -56,9 +56,14 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    if(IsEdit)
+                    if (IsEdit)
                     {
+                        var isValid = Utilities.ValidationHelper.IsValid(EditPerson, Shell.Current.CurrentPage);
+                        if (!isValid)
+                            return;
+
                         Services.DbService.Instance.SavePerson(EditPerson);
+                        
                         var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
                                                                             "返回聯絡人列表", "再檢視此筆資料");
                         if (isBack)
