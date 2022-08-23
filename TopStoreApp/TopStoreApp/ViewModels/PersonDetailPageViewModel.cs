@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 namespace TopStoreApp.ViewModels
 {
+    [QueryProperty(nameof(IsEditQueryString), "isEdit")]
     [QueryProperty(nameof(PersonId), "personId")]
     public class PersonDetailPageViewModel : BasePageViewModel
     {
@@ -25,6 +26,22 @@ namespace TopStoreApp.ViewModels
                 int personId = value;
                 if (personId > 0)
                     EditPerson = Utilities.MockData.People.FirstOrDefault((person) => { return person.Id == personId; });
+            }
+        }
+
+        private bool _isEdit;
+
+        public bool IsEdit
+        {
+            get { return _isEdit; }
+            set { OnPropertyChanged<bool>(ref _isEdit, value); }
+        }
+
+        public string IsEditQueryString
+        {
+            set
+            {
+                IsEdit = bool.Parse(value);
             }
         }
 
