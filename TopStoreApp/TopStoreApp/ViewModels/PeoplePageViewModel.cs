@@ -18,5 +18,30 @@ namespace TopStoreApp.ViewModels
             get { return _people; }
             set { OnPropertyChanged<ObservableCollection<Person>>(ref _people, value); }
         }
+
+
+        public ICommand AddCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+
+                });
+            }
+        }
+
+
+        public ICommand EditCommand
+        {
+            get
+            {
+                return new Command<string>((arg) =>
+                {
+
+                });
+            }
+        }
+
     }
 }

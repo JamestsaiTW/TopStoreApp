@@ -1,6 +1,6 @@
 ﻿namespace TopStoreApp.Models
 {
-    internal class Person
+    public class Person
     {
     }
 }
