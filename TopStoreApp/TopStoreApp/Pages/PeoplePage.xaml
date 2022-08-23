@@ -22,7 +22,7 @@
                         <ViewCell>
                             <ViewCell.ContextActions>
                                 <MenuItem
-                                    Command="{Binding DeleteCommand}"
+                                    Clicked="DeleteMenuItem_Clicked"
                                     IsDestructive="True"
                                     Text="刪除" />
                             </ViewCell.ContextActions>

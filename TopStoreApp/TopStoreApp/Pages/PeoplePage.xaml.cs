@@ -23,5 +23,11 @@ namespace TopStoreApp.Pages
             vm.EditCommand.Execute(e.Item);
             (sender as ListView).SelectedItem = null;
         }
+
+        private void DeleteMenuItem_Clicked(object sender, EventArgs e)
+        {
+            var vm = BindingContext as ViewModels.PeoplePageViewModel;
+            vm.DeleteCommand.Execute((sender as MenuItem).BindingContext);
+        }
     }
 }
