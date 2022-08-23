@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 namespace TopStoreApp.ViewModels
 {
+    [QueryProperty(nameof(PersonId), "personId")]
     public class PersonDetailPageViewModel : BasePageViewModel
     {
         private Models.Person _editPerson;
@@ -15,6 +16,16 @@ namespace TopStoreApp.ViewModels
         {
             get { return _editPerson; }
             set { OnPropertyChanged<Models.Person>(ref _editPerson, value); }
+        }
+
+        public int PersonId
+        {
+            set
+            {
+                int personId = value;
+                if (personId > 0)
+                    EditPerson = Utilities.MockData.People.FirstOrDefault((person) => { return person.Id == personId; });
+            }
         }
 
         public PersonDetailPageViewModel()

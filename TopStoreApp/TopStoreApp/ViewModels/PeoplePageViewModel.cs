@@ -40,9 +40,9 @@ namespace TopStoreApp.ViewModels
         {
             get
             {
-                return new Command<string>((arg) =>
+                return new Command<Models.Person>(async (person) =>
                 {
-
+                    await Shell.Current.GoToAsync($"PersonDetailPage?personId={person.Id}");
                 });
             }
         }

@@ -15,6 +15,7 @@
             <ListView
                 CachingStrategy="RecycleElement"
                 HasUnevenRows="True"
+                ItemTapped="ListView_ItemTapped"
                 ItemsSource="{Binding People}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
