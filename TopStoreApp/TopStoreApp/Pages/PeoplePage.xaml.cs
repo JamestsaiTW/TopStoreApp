@@ -17,6 +17,14 @@ namespace TopStoreApp.Pages
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var vm = BindingContext as ViewModels.PeoplePageViewModel;
+            vm.People = Services.DbService.Instance.GetPeople();
+        }
+
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var vm = BindingContext as ViewModels.PeoplePageViewModel;

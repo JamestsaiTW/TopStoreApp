@@ -21,7 +21,7 @@ namespace TopStoreApp.ViewModels
 
         public PeoplePageViewModel()
         {
-            People = Services.DbService.Instance.GetPeople();
+            //People = Services.DbService.Instance.GetPeople();
         }
 
         public ICommand AddCommand
@@ -65,7 +65,8 @@ namespace TopStoreApp.ViewModels
                     var isOk = await Shell.Current.DisplayAlert("警告", $"確定\"{person.Name}\"刪除?", "確定", "取消");
                     if (isOk)
                     {
-                        Utilities.MockData.People.Remove(person);
+                        Services.DbService.Instance.DeletePerson(person);
+                        People = Services.DbService.Instance.GetPeople();
                     }
                 });
             }
@@ -77,11 +78,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command<string>(async (keyword) =>
                 {
-                    var results = new ObservableCollection<Person>(Utilities.MockData.People.Where(
-                                            (person) =>
-                                            {
-                                                return person.Name.ToLower().Contains(keyword.ToLower());
-                                            }));
+                    var results = Services.DbService.Instance.GetPeople(keyword);
                     if (results.Count != 0)
                     {
                         People = results;

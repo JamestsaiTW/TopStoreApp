@@ -41,13 +41,13 @@ namespace TopStoreApp.ViewModels
             {
                 int personId = value;
                 if (personId > 0)
-                    EditPerson = Utilities.MockData.GetPerson(personId);
+                    EditPerson = Services.DbService.Instance.GetPerson(personId);
             }
         }
 
         public PersonDetailPageViewModel()
         {
-            EditPerson = Utilities.MockData.NewPerson();
+            EditPerson = new Models.Person();
         }
 
         public ICommand SaveCommand
@@ -58,11 +58,13 @@ namespace TopStoreApp.ViewModels
                 {
                     if(IsEdit)
                     {
-                        Utilities.MockData.EditPeople(EditPerson);
+                        Services.DbService.Instance.SavePerson(EditPerson);
                         var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
                                                                             "返回聯絡人列表", "再檢視此筆資料");
                         if (isBack)
-                            await Shell.Current.Navigation.PopAsync();
+                        {
+                            await Shell.Current.GoToAsync("..");
+                        }
                     }
                     IsEdit = !IsEdit;
                 });

@@ -19,18 +19,42 @@ namespace TopStoreApp.Services
             }
         }
 
+        readonly SQLiteConnection sqliteDbConnection;
+
         private DbService()
         {
             var appRootDir = Xamarin.Essentials.FileSystem.AppDataDirectory;
             var sqliteDbFullPath = System.IO.Path.Combine(appRootDir, "TopStoreDB.db");
-            var sqliteConnection = new SQLiteConnection(sqliteDbFullPath);
+            sqliteDbConnection = new SQLiteConnection(sqliteDbFullPath);
 
-            sqliteConnection.CreateTable<Models.Person>();
+            sqliteDbConnection.CreateTable<Models.Person>();
         }
 
         internal ObservableCollection<Models.Person> GetPeople(string keyword = "")
         {
-            return new ObservableCollection<Models.Person>();
+            var people = sqliteDbConnection.Table<Models.Person>()
+                                           .Where( person => person.Name.ToLower().Contains(keyword.ToLower()));
+            return new ObservableCollection<Models.Person>(people);
+        }
+
+        internal Models.Person GetPerson(int id)
+        {
+            return sqliteDbConnection.Table<Models.Person>()
+                            .Where(p => p.Id == id)
+                            .FirstOrDefault();
+        }
+
+        internal int SavePerson(Models.Person person)
+        {
+            if (person.Id != 0)
+                return sqliteDbConnection.Update(person);
+            else
+                return sqliteDbConnection.Insert(person);
+        }
+
+        internal int DeletePerson(Models.Person person)
+        {
+            return sqliteDbConnection.Delete(person);
         }
     }
 }
