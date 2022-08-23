@@ -7,7 +7,7 @@ namespace TopStoreApp
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute("PersonDetailPage", typeof(Pages.PersonDetailPage));
+            Routing.RegisterRoute("People/PersonDetail", typeof(Pages.PersonDetailPage));
         }
     }
 }

@@ -8,25 +8,25 @@
     xmlns:pages="clr-namespace:TopStoreApp.Pages"
     mc:Ignorable="d">
     <TabBar>
-        <ShellContent Title="聯絡人">
+        <ShellContent Title="聯絡人" Route="People">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FA5" Glyph="&#xf2bd;" />
             </ShellContent.Icon>
             <pages:PeoplePage Title="聯絡人" />
         </ShellContent>
-        <ShellContent Title="物品項">
+        <ShellContent Title="物品項" Route="Goods">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FA5" Glyph="&#xf1ea;" />
             </ShellContent.Icon>
             <pages:GoodsPage Title="物品項" />
         </ShellContent>
-        <ShellContent Title="訂單">
+        <ShellContent Title="訂單" Route="Orders">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FA5" Glyph="&#xf022;" />
             </ShellContent.Icon>
             <pages:OrdersPage Title="訂單" />
         </ShellContent>
-        <ShellContent Title="設定">
+        <ShellContent Title="設定" Route="Settings">
             <ShellContent.Icon>
                 <FontImageSource FontFamily="FA5" Glyph="&#xf185;" />
             </ShellContent.Icon>

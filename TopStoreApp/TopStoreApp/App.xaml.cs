@@ -19,7 +19,9 @@ namespace TopStoreApp
 
         protected override void OnStart()
         {
+            PageDisappearing += (sender, e) => { System.Diagnostics.Debug.WriteLine(Shell.Current.CurrentState.Location); };
         }
+    
 
         protected override void OnSleep()
         {

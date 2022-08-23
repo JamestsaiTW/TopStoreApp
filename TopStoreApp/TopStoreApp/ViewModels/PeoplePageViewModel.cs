@@ -30,7 +30,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await Shell.Current.GoToAsync("PersonDetailPage?isEdit=true");
+                    await Shell.Current.GoToAsync("//People/PersonDetail?isEdit=true");
                 });
             }
         }
@@ -40,7 +40,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command<Person>(async (person) =>
                 {
-                    await Shell.Current.GoToAsync($"PersonDetailPage?isEdit=false&personId={person.Id}");
+                    await Shell.Current.GoToAsync($"//People/PersonDetail?isEdit=false&personId={person.Id}");
                 });
             }
         }
