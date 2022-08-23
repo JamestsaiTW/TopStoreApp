@@ -47,7 +47,7 @@ namespace TopStoreApp.ViewModels
 
         public PersonDetailPageViewModel()
         {
-            EditPerson = new Models.Person();
+            EditPerson = Utilities.MockData.NewPerson();
         }
 
         public ICommand SaveCommand
@@ -59,7 +59,10 @@ namespace TopStoreApp.ViewModels
                     if (IsEdit)
                     {
                         Utilities.MockData.People.Add(EditPerson);
-                        await Shell.Current.DisplayAlert("通知", "儲存成功", "OK");
+                        var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功", "返回聯絡人", "再檢視此筆資料");
+
+                        if (isBack)
+                            await Shell.Current.GoToAsync("..");
                     }
                     IsEdit = !IsEdit;
                 });

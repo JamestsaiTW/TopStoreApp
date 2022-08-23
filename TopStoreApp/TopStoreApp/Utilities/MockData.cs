@@ -17,5 +17,21 @@ namespace TopStoreApp.Utilities
                 new Models.Person {Id = 4, Name = "Da Wang" , Address = "台中市北區松江路100號" , Tel = "04-88833311" , Email= "Dawang@abc.com.tw"},
                 new Models.Person {Id = 5, Name = "Mandy Q" , Address = "台南市西區中正路100號" , Tel = "06-66633311" , Email= "Mandyq@abc.com.tw"},
             };
+
+        internal static Models.Person GetPerson(int id)
+        { 
+            return People.FirstOrDefault((person) => person.Id == id);
+        }
+
+        internal static Models.Person NewPerson()
+        {
+            return new Models.Person() { Id = People.Last().Id + 1 };
+        }
+
+        internal static void EditPerson(Models.Person person)
+        {
+            if(person.Id > People.Last().Id)
+                People.Add(person); 
+        }
     }
 }
