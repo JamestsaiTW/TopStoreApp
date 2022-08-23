@@ -16,6 +16,7 @@
                 CachingStrategy="RecycleElement"
                 HasUnevenRows="True"
                 ItemsSource="{Binding People}" />
+                    <DataTemplate>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
