@@ -1,5 +1,7 @@
 # TopStoreApp
 
-╕╧ Ironman2021 ╓ю╓Д╛╟ "Re: ╠q╧s╤}╘l╔н Xamarin ╖чЁN╗с╢_╗Х╧L╔h╤}╣o╙╨ App: TopStore" ╕s╘Я╟я╩P iThelp 2021 еK╓Hаи╙╨╕U╕^ EP ╙╨╣{╕║╫X║C
+Ф╜╓ Ironman2021 Е┬├Ф■╞Г┌╨ "Re: Е╬·И⌡╤И√▀Е╖▀Г■╗ Xamarin Ф┼─Х║⌠Д╬├Е╬╘Е┬╩И│▌Е▌╩И√▀Г≥╪Г └ App: TopStore" Е╜≤Ф■╬Е▐┐Х┬┤ iThelp 2021 И░╣Д╨╨ХЁ╫Г └Е░└Е⌡· EP Г └Г╗▀Е╪▐Г╒╪Ц─┌
 
-╠q╕╧╚e╔h iThelp 2021 еK╓Hаи ф[╛щ "[Re: ╠q╧s╤}╘l╔н Xamarin ╖чЁN╗с╢_╗Х╧L╔h╤}╣o╙╨ App: TopStore](https://ithelp.ithome.com.tw/users/20126714/ironman/4369)" ╗t╕C╓Е╓╤╡п║C
+Е╬·Ф╜╓Е┴█Е▌╩ iThelp 2021 И░╣Д╨╨ХЁ╫ Х╖─Г°▀ "[Re: Е╬·И⌡╤И√▀Е╖▀Г■╗ Xamarin Ф┼─Х║⌠Д╬├Е╬╘Е┬╩И│▌Е▌╩И√▀Г≥╪Г └ App: TopStore](https://ithelp.ithome.com.tw/users/20126714/ironman/4369)" ГЁ╩Е┬≈Ф√┤Д╩▀Г╢╧Ц─┌
+
+EP23Ц─│EP29Ц─│EP30 Г └Ф√┤Г╚═Д╩▀Г╢╧И│▌Г╗▀Д╦╜Ф╡▓Ф°┴Е╟█Е╟┬Ф║┬Х╝┼Ф⌡╢Д╩╩Д╫∙Г╗▀Е╪▐Г╒╪О╪▄Ф┴─Д╩╔Ф╡▓Ф°┴Х╘╡ EP Ф┴─Е╟█Ф┤┴Г └ Commit CodeЦ─┌
