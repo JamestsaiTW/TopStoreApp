@@ -41,13 +41,13 @@ namespace TopStoreApp.ViewModels
             {
                 int personId = value;
                 if (personId > 0)
-                    EditPerson = Services.DbService.Instance.GetPerson(personId);
+                    EditPerson = App.DataService.GetPerson(personId);
             }
         }
 
         public PersonDetailPageViewModel()
         {
-            EditPerson = new Models.Person();
+            EditPerson = App.DataService.NewPerson();
         }
 
         public ICommand SaveCommand
@@ -62,7 +62,7 @@ namespace TopStoreApp.ViewModels
                         if (!isValid)
                             return;
 
-                        Services.DbService.Instance.SavePerson(EditPerson);
+                        App.DataService.SavePerson(EditPerson);
                         
                         var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
                                                                             "返回聯絡人列表", "再檢視此筆資料");

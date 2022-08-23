@@ -6,9 +6,23 @@ using System.Linq;
 
 namespace TopStoreApp.Utilities
 {
-    public class MockData
+    public class MockData : Services.IDataService
     {
-        public static ObservableCollection<Models.Person> People = new ObservableCollection<Models.Person>()
+        private readonly ObservableCollection<Models.Person> people;
+
+        private static MockData _instance;
+        public static MockData Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new MockData();
+                return _instance;
+            }
+        }
+        private MockData()
+        {
+            people = new ObservableCollection<Models.Person>()
             {
                 new Models.Person {Id = 1, Name = "James Tsai" , Address = "台北市信義區忠孝東路100號" , Tel = "02-22233311" , Email= "Jamestsai@abc.com.tw"},
                 new Models.Person {Id = 2, Name = "Andy Kao" , Address = "新北市永和區中和路100號" , Tel = "02-77733311" , Email= "Andykao@abc.com.tw"},
@@ -16,21 +30,30 @@ namespace TopStoreApp.Utilities
                 new Models.Person {Id = 4, Name = "Da Wang" , Address = "台中市北區松江路100號" , Tel = "04-88833311" , Email= "Dawang@abc.com.tw"},
                 new Models.Person {Id = 5, Name = "Mandy Q" , Address = "台南市西區中正路100號" , Tel = "06-66633311" , Email= "Mandyq@abc.com.tw"},
             };
-
-        internal static Models.Person GetPerson(int id)
-        {
-            return People.FirstOrDefault((person) => { return person.Id == id; });
         }
-
-        internal static Models.Person NewPerson()
+        public ObservableCollection<Models.Person> GetPeople(string keyword = "")
         {
-            return new Models.Person() { Id = People.Last().Id + 1 };
+            return new ObservableCollection<Models.Person>(people.Where<Models.Person>(
+                                    (person) => person.Name.ToLower().Contains(keyword.ToLower()
+                                )));
         }
-
-        internal static void EditPeople(Models.Person person)
+        public Models.Person GetPerson(int id)
         {
-            if (person.Id > People.Last().Id)
-                People.Add(person);
+            return people.FirstOrDefault((person) => { return person.Id == id; });
+        }
+        public Models.Person NewPerson()
+        {
+            return new Models.Person() { Id = people.Last().Id + 1 };
+        }
+        public int SavePerson(Models.Person person)
+        {
+            if (person.Id > people.Last().Id)
+                people.Add(person);
+            return 1;
+        }
+        public int DeletePerson(Models.Person person)
+        {
+            return people.Remove(person) ? 1 : 0;
         }
     }
 }

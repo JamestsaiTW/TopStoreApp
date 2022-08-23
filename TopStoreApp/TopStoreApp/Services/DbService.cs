@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace TopStoreApp.Services
 {
-    public class DbService
+    public class DbService : IDataService
     {
         private static DbService _instance;
         public static DbService Instance
@@ -20,7 +20,6 @@ namespace TopStoreApp.Services
         }
 
         readonly SQLiteConnection sqliteDbConnection;
-
         private DbService()
         {
             var appRootDir = Xamarin.Essentials.FileSystem.AppDataDirectory;
@@ -30,21 +29,21 @@ namespace TopStoreApp.Services
             sqliteDbConnection.CreateTable<Models.Person>();
         }
 
-        internal ObservableCollection<Models.Person> GetPeople(string keyword = "")
+        public ObservableCollection<Models.Person> GetPeople(string keyword = "")
         {
             var people = sqliteDbConnection.Table<Models.Person>()
                                            .Where( person => person.Name.ToLower().Contains(keyword.ToLower()));
             return new ObservableCollection<Models.Person>(people);
         }
 
-        internal Models.Person GetPerson(int id)
+        public Models.Person GetPerson(int id)
         {
             return sqliteDbConnection.Table<Models.Person>()
                             .Where(p => p.Id == id)
                             .FirstOrDefault();
         }
 
-        internal int SavePerson(Models.Person person)
+        public int SavePerson(Models.Person person)
         {
             if (person.Id != 0)
                 return sqliteDbConnection.Update(person);
@@ -52,9 +51,14 @@ namespace TopStoreApp.Services
                 return sqliteDbConnection.Insert(person);
         }
 
-        internal int DeletePerson(Models.Person person)
+        public int DeletePerson(Models.Person person)
         {
             return sqliteDbConnection.Delete(person);
+        }
+
+        public Models.Person NewPerson() 
+        {
+            return new Models.Person();
         }
     }
 }

@@ -6,9 +6,12 @@ namespace TopStoreApp
 {
     public partial class App : Application
     {
+        internal static Services.IDataService DataService;
         public App()
         {
             InitializeComponent();
+
+            DataService = Utilities.MockData.Instance;
 
             MainPage = new AppShell();
         }

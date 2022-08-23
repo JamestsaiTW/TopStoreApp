@@ -22,7 +22,7 @@ namespace TopStoreApp.Pages
             base.OnAppearing();
 
             var vm = BindingContext as ViewModels.PeoplePageViewModel;
-            vm.People = Services.DbService.Instance.GetPeople();
+            vm.People = App.DataService.GetPeople();
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

@@ -3,12 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	  <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Utilities\Validations\**" />
+    <EmbeddedResource Remove="Utilities\Validations\**" />
+    <None Remove="Utilities\Validations\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\FontAwesome5.otf" />
@@ -18,8 +25,8 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="Xam.Plugin.BaseBindingLibrary" Version="1.0.1.1" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Update="Pages\GoodsPage.xaml">

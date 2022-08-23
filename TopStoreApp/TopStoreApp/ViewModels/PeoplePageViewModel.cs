@@ -30,7 +30,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage?isEdit=true");
+                    await Shell.Current.GoToAsync("PersonDetailPage?isEdit=true");
                 });
             }
         }
@@ -40,7 +40,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command<Person>(async (person) =>
                 {
-                    await Shell.Current.GoToAsync($"//{Shell.Current.CurrentState.Location}/PersonDetailPage?isEdit=false&personId={person.Id}");
+                    await Shell.Current.GoToAsync($"PersonDetailPage?isEdit=false&personId={person.Id}");
                 });
             }
         }
@@ -65,8 +65,8 @@ namespace TopStoreApp.ViewModels
                     var isOk = await Shell.Current.DisplayAlert("警告", $"確定\"{person.Name}\"刪除?", "確定", "取消");
                     if (isOk)
                     {
-                        Services.DbService.Instance.DeletePerson(person);
-                        People = Services.DbService.Instance.GetPeople();
+                        App.DataService.DeletePerson(person);
+                        People = App.DataService.GetPeople();
                     }
                 });
             }
@@ -78,7 +78,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command<string>(async (keyword) =>
                 {
-                    var results = Services.DbService.Instance.GetPeople(keyword);
+                    var results = App.DataService.GetPeople(keyword);
                     if (results.Count != 0)
                     {
                         People = results;
