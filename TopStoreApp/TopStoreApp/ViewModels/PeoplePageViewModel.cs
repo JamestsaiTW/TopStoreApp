@@ -46,6 +46,16 @@ namespace TopStoreApp.ViewModels
                 });
             }
         }
+        public ICommand CallTelCommand
+        {
+            get
+            {
+                return new Command<Person>((person) =>
+                {
+                    Xamarin.Essentials.PhoneDialer.Open(person.Tel);
+                });
+            }
+        }
 
     }
 }
