@@ -10,7 +10,7 @@ namespace TopStoreApp
         {
             InitializeComponent();
 
-            MainPage = new Pages.PeoplePage();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()
