@@ -8,7 +8,7 @@
         <viewmodels:PersonDetailPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding SaveCommand}" Text="儲存" />
+        <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

@@ -56,9 +56,12 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command(async () =>
                 {
-                    Utilities.MockData.People.Add(EditPerson);
-                    await Shell.Current.DisplayAlert("通知", "儲存成功", "OK");
-                    await Shell.Current.GoToAsync("..");
+                    if (IsEdit)
+                    {
+                        Utilities.MockData.People.Add(EditPerson);
+                        await Shell.Current.DisplayAlert("通知", "儲存成功", "OK");
+                    }
+                    IsEdit = !IsEdit;
                 });
             }
         }
