@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TopStoreApp.Pages.PersonDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels">
+    <ContentPage.BindingContext>
+        <viewmodels:PersonDetailPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="名稱:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Placeholder="請輸入名稱..."
+                Text="{Binding EditPerson.Name}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="NameError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="電話:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Keyboard="Telephone"
+                Placeholder="請輸入電話..."
+                Text="{Binding EditPerson.Tel}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="TelError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="電子郵件:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Keyboard="Email"
+                Placeholder="請輸入電子郵件..."
+                Text="{Binding EditPerson.Email}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="EmailError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="地址:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Placeholder="請輸入地址..."
+                Text="{Binding EditPerson.Address}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="AddressError" IsVisible="False" TextColor="Red" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TopStoreApp.Pages.PeoplePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels">
+    <ContentPage.BindingContext>
+        <viewmodels:PeoplePageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddCommand}" Text="新增" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar
+                Placeholder="請輸入要搜尋的聯絡人姓名..."
+                SearchCommand="{Binding SearchCommand}"
+                SearchCommandParameter="{Binding Source={RelativeSource Self}, Path=Text}"
+                TextChanged="SearchBar_TextChanged"
+                TextTransform="Lowercase" />
+            <ListView
+                x:Name="mainListView"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                ItemTapped="ListView_ItemTapped"
+                ItemsSource="{Binding People}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference mainListView}}"
+                                    CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                                    IsDestructive="True"
+                                    Text="刪除" />
+                            </ViewCell.ContextActions>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding Name}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding Email}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding Address}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
+                                <Button
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="2"
+                                    Margin="0,6"
+                                    BackgroundColor="Cyan"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PeoplePageViewModel}}, Path=CallTelCommand}"
+                                    CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Text="撥電話"
+                                    TextColor="Chocolate"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

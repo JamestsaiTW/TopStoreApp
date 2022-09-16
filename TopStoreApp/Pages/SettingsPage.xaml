@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TopStoreApp.Pages.SettingsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Frame
+                Margin="10"
+                Padding="10"
+                CornerRadius="10"
+                OutlineColor="Accent">
+                <StackLayout>
+                    <Label
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        VerticalOptions="Start"
+                        VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="此開關將會讓 App 從內建展示資料與實際真實資料之間切換(需" />
+                                    <Span FontAttributes="Bold" Text=" 重新啟動 App " />
+                                    <Span Text="後才能完成資料切換)。" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="目前使用的是: " />
+                                        <Span FontAttributes="Bold" Text="{Binding IsToggled, Source={x:Reference dataChoiceSwitch}, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='實際真實資料,內建展示資料'}" />
+                                        <Span Text="。" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Switch
+                            x:Name="dataChoiceSwitch"
+                            HorizontalOptions="EndAndExpand"
+                            Toggled="DataSwitch_Toggled" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
