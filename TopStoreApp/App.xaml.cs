@@ -2,10 +2,21 @@
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    internal static Services.IDataService DataService;
+    public App()
+    {
+        InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        var isDbService = Xamarin.Essentials.Preferences.Get("UserSwitchToDataService", false);
+        DataService = isDbService ? Services.DbService.Instance : Utilities.MockData.Instance;
+
+        MainPage = new AppShell();
+    }
+
+    protected override void OnStart()
+    {
+        PageDisappearing += (sender, e) => {
+            System.Diagnostics.Debug.WriteLine(Shell.Current.CurrentState.Location);
+        };
+    }
 }

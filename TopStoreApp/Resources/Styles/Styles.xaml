@@ -381,4 +381,7 @@
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>
 
+    <Style TargetType="FontImageSource">
+        <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}" />
+    </Style>
 </ResourceDictionary>
