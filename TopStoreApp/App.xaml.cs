@@ -7,7 +7,7 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        var isDbService = Xamarin.Essentials.Preferences.Get("UserSwitchToDataService", false);
+        var isDbService = Preferences.Get("UserSwitchToDataService", false);
         DataService = isDbService ? Services.DbService.Instance : Utilities.MockData.Instance;
 
         MainPage = new AppShell();
@@ -15,7 +15,8 @@ public partial class App : Application
 
     protected override void OnStart()
     {
-        PageDisappearing += (sender, e) => {
+        PageDisappearing += (sender, e) =>
+        {
             System.Diagnostics.Debug.WriteLine(Shell.Current.CurrentState.Location);
         };
     }

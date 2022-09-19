@@ -22,7 +22,7 @@ namespace TopStoreApp.Services
         readonly SQLiteConnection sqliteDbConnection;
         private DbService()
         {
-            var appRootDir = Xamarin.Essentials.FileSystem.AppDataDirectory;
+            var appRootDir = FileSystem.AppDataDirectory;
             var sqliteDbFullPath = System.IO.Path.Combine(appRootDir, "TopStoreDB.db");
             sqliteDbConnection = new SQLiteConnection(sqliteDbFullPath);
 

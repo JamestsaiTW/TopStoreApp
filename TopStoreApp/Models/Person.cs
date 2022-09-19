@@ -3,7 +3,7 @@ using SQLite;
 
 namespace TopStoreApp.Models
 {
-    public class Person : Xam.Plugin.BaseBindingLibrary.BaseNotifyProperty
+    public class Person : Maui.Plugin.BaseBindingLibrary.BaseNotifyProperty
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TopStoreApp.ViewModels
 {
-    public class BasePageViewModel : Xam.Plugin.BaseBindingLibrary.BaseNotifyProperty
+    public class BasePageViewModel : Maui.Plugin.BaseBindingLibrary.BaseNotifyProperty
     {
         private bool _isConnected;
 

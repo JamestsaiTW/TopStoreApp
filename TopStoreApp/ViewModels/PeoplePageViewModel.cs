@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Xamarin.Forms;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
 using TopStoreApp.Models;
 using System.Linq;
 
@@ -51,7 +52,7 @@ namespace TopStoreApp.ViewModels
             {
                 return new Command<Person>((person) =>
                 {
-                    Xamarin.Essentials.PhoneDialer.Open(person.Tel);
+                    PhoneDialer.Open(person.Tel);
                 });
             }
         }
