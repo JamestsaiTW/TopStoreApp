@@ -13,7 +13,7 @@
                 Margin="10"
                 Padding="10"
                 CornerRadius="10"
-                OutlineColor="Accent">
+                BorderColor="{StaticResource Primary}">
                 <StackLayout>
                     <Label
                         HorizontalOptions="FillAndExpand"
