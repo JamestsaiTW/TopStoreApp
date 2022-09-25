@@ -8,19 +8,19 @@ namespace TopStoreApp.Services
 {
     public class DbService : IDataService
     {
-        private static DbService _instance;
-        public static DbService Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new DbService();
-                return _instance;
-            }
-        }
+        //private static DbService _instance;
+        //public static DbService Instance
+        //{
+        //    get
+        //    {
+        //        if (_instance == null)
+        //            _instance = new DbService();
+        //        return _instance;
+        //    }
+        //}
 
         readonly SQLiteConnection sqliteDbConnection;
-        private DbService()
+        public DbService()
         {
             var appRootDir = FileSystem.AppDataDirectory;
             var sqliteDbFullPath = System.IO.Path.Combine(appRootDir, "TopStoreDB.db");

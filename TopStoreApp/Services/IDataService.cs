@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace TopStoreApp.Services
 {
-    internal interface IDataService
+    public interface IDataService
     {
         ObservableCollection<Models.Person> GetPeople(string keyword = "");
         Models.Person GetPerson(int id);

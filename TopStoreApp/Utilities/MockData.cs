@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using System.Linq;
 
 namespace TopStoreApp.Utilities
 {
@@ -10,17 +9,18 @@ namespace TopStoreApp.Utilities
     {
         private readonly ObservableCollection<Models.Person> people;
 
-        private static MockData _instance;
-        public static MockData Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new MockData();
-                return _instance;
-            }
-        }
-        private MockData()
+        //private static MockData _instance;
+        //public static MockData Instance
+        //{
+        //    get
+        //    {
+        //        if (_instance == null)
+        //            _instance = new MockData();
+        //        return _instance;
+        //    }
+        //}
+
+        public MockData()
         {
             people = new ObservableCollection<Models.Person>()
             {

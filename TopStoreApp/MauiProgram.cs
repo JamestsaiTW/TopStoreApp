@@ -10,8 +10,21 @@ public static class MauiProgram
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("FontAwesome5.otf", "FA5");
-			});
+			})
+			.RegisterAppDataService();
 
-		return builder.Build();
+        return builder.Build();
 	}
+
+    private static MauiAppBuilder RegisterAppDataService(this MauiAppBuilder builder)
+    {
+        var isDbService = Preferences.Get("UserSwitchToDataService", false);
+
+        if (isDbService)
+            builder.Services.AddSingleton<Services.IDataService, Services.DbService>();
+        else
+            builder.Services.AddSingleton<Services.IDataService, Utilities.MockData>();
+
+        return builder;
+    }
 }
