@@ -10,12 +10,16 @@ using Microsoft.Maui.Controls.Xaml;
 
 namespace TopStoreApp.Pages
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PersonDetailPage : ContentPage
     {
-        public PersonDetailPage()
+        private PersonDetailPage()
         {
             InitializeComponent();
+        }
+
+        public PersonDetailPage(ViewModels.PersonDetailPageViewModel personDetailPageViewModel) : this()
+        {
+            BindingContext = personDetailPageViewModel;
         }
     }
 }
