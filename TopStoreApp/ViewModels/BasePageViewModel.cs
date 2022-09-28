@@ -1,18 +1,20 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace TopStoreApp.ViewModels
 {
-    public class BasePageViewModel : Maui.Plugin.BaseBindingLibrary.BaseNotifyProperty
+    public partial class BasePageViewModel : ObservableObject
     {
+        [ObservableProperty]
         private bool _isConnected;
 
-        public bool IsConnected
-        {
-            get { return _isConnected; }
-            set { OnPropertyChanged<bool>(ref _isConnected, value); }
-        }
+        //public bool IsConnected
+        //{
+        //    get { return _isConnected; }
+        //    set { OnPropertyChanged<bool>(ref _isConnected, value); }
+        //}
 
     }
 }

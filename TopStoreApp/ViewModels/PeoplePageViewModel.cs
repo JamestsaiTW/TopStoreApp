@@ -7,18 +7,20 @@ using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using TopStoreApp.Models;
 using System.Linq;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace TopStoreApp.ViewModels
 {
-    public class PeoplePageViewModel : BasePageViewModel
+    public partial class PeoplePageViewModel : BasePageViewModel
     {
+        [ObservableProperty]
         private ObservableCollection<Person> _people;
 
-        public ObservableCollection<Person> People
-        {
-            get { return _people; }
-            set { OnPropertyChanged<ObservableCollection<Person>>(ref _people, value); }
-        }
+        //public ObservableCollection<Person> People
+        //{
+        //    get { return _people; }
+        //    set { OnPropertyChanged<ObservableCollection<Person>>(ref _people, value); }
+        //}
 
         public PeoplePageViewModel()
         {

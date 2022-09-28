@@ -5,28 +5,31 @@ using System.Text;
 using System.Windows.Input;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace TopStoreApp.ViewModels
 {
     [QueryProperty(nameof(IsEditQueryString), "isEdit")]
     [QueryProperty(nameof(PersonId), "personId")]
-    public class PersonDetailPageViewModel : BasePageViewModel
+    public partial class PersonDetailPageViewModel : BasePageViewModel
     {
+        [ObservableProperty]
         private Models.Person _editPerson;
 
-        public Models.Person EditPerson
-        {
-            get { return _editPerson; }
-            set { OnPropertyChanged<Models.Person>(ref _editPerson, value); }
-        }
+        //public Models.Person EditPerson
+        //{
+        //    get { return _editPerson; }
+        //    set { OnPropertyChanged<Models.Person>(ref _editPerson, value); }
+        //}
 
+        [ObservableProperty]
         private bool _isEdit;
 
-        public bool IsEdit
-        {
-            get { return _isEdit; }
-            set { OnPropertyChanged<bool>(ref _isEdit, value); }
-        }
+        //public bool IsEdit
+        //{
+        //    get { return _isEdit; }
+        //    set { OnPropertyChanged<bool>(ref _isEdit, value); }
+        //}
 
         public string IsEditQueryString
         {
