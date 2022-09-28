@@ -8,6 +8,7 @@ using Microsoft.Maui.Controls;
 using TopStoreApp.Models;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace TopStoreApp.ViewModels
 {
@@ -27,69 +28,111 @@ namespace TopStoreApp.ViewModels
             //People = Services.DbService.Instance.GetPeople();
         }
 
-        public ICommand AddCommand
+        [RelayCommand]
+        private async void Add()
         {
-            get
-            {
-                return new Command(async () =>
-                {
-                    await Shell.Current.GoToAsync("//People/PersonDetail?isEdit=true");
-                });
-            }
+            await Shell.Current.GoToAsync("//People/PersonDetail?isEdit=true");
         }
-        public ICommand EditCommand
+
+        [RelayCommand]
+        private async void Edit(Person person)
         {
-            get
+            await Shell.Current.GoToAsync($"//People/PersonDetail?isEdit=false&personId={person.Id}");
+        }
+
+        [RelayCommand]
+        private async void Delete(Person person)
+        {
+            var isOk = await Shell.Current.DisplayAlert("警告", $"確定\"{person.Name}\"刪除?", "確定", "取消");
+            if (isOk)
             {
-                return new Command<Person>(async (person) =>
-                {
-                    await Shell.Current.GoToAsync($"//People/PersonDetail?isEdit=false&personId={person.Id}");
-                });
+                App.DataService.DeletePerson(person);
+                People = App.DataService.GetPeople();
             }
         }
 
-        public ICommand CallTelCommand
+        [RelayCommand]
+        private void CallTel(Person person)
         {
-            get
-            {
-                return new Command<Person>((person) =>
-                {
-                    PhoneDialer.Open(person.Tel);
-                });
-            }
+            PhoneDialer.Open(person.Tel);
         }
 
-        public ICommand DeleteCommand
+        [RelayCommand]
+        private async void Search(string keyword)
         {
-            get
+            var results = App.DataService.GetPeople(keyword);
+            if (results.Count != 0)
             {
-                return new Command<Person>(async (person) =>
-                {
-                    var isOk = await Shell.Current.DisplayAlert("警告", $"確定\"{person.Name}\"刪除?", "確定", "取消");
-                    if (isOk)
-                    {
-                        App.DataService.DeletePerson(person);
-                        People = App.DataService.GetPeople();
-                    }
-                });
+                People = results;
+                return;
             }
+            await Shell.Current.DisplayAlert("通知", "查無相關聯絡人", "OK");
         }
 
-        public ICommand SearchCommand
-        {
-            get
-            {
-                return new Command<string>(async (keyword) =>
-                {
-                    var results = App.DataService.GetPeople(keyword);
-                    if (results.Count != 0)
-                    {
-                        People = results;
-                        return;
-                    }
-                    await Shell.Current.DisplayAlert("通知", "查無相關聯絡人", "OK");
-                });
-            }
-        }
+        //public ICommand AddCommand
+        //{
+        //    get
+        //    {
+        //        return new Command(async () =>
+        //        {
+        //            await Shell.Current.GoToAsync("//People/PersonDetail?isEdit=true");
+        //        });
+        //    }
+        //}
+
+        //public ICommand EditCommand
+        //{
+        //    get
+        //    {
+        //        return new Command<Person>(async (person) =>
+        //        {
+        //            await Shell.Current.GoToAsync($"//People/PersonDetail?isEdit=false&personId={person.Id}");
+        //        });
+        //    }
+        //}
+
+        //public ICommand CallTelCommand
+        //{
+        //    get
+        //    {
+        //        return new Command<Person>((person) =>
+        //        {
+        //            PhoneDialer.Open(person.Tel);
+        //        });
+        //    }
+        //}
+
+        //public ICommand DeleteCommand
+        //{
+        //    get
+        //    {
+        //        return new Command<Person>(async (person) =>
+        //        {
+        //            var isOk = await Shell.Current.DisplayAlert("警告", $"確定\"{person.Name}\"刪除?", "確定", "取消");
+        //            if (isOk)
+        //            {
+        //                App.DataService.DeletePerson(person);
+        //                People = App.DataService.GetPeople();
+        //            }
+        //        });
+        //    }
+        //}
+
+        //public ICommand SearchCommand
+        //{
+        //    get
+        //    {
+        //        return new Command<string>(async (keyword) =>
+        //        {
+        //            var results = App.DataService.GetPeople(keyword);
+        //            if (results.Count != 0)
+        //            {
+        //                People = results;
+        //                return;
+        //            }
+        //            await Shell.Current.DisplayAlert("通知", "查無相關聯絡人", "OK");
+        //        });
+        //    }
+        //}
     }
 }

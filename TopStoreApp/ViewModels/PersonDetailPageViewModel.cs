@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace TopStoreApp.ViewModels
 {
@@ -54,30 +55,51 @@ namespace TopStoreApp.ViewModels
             EditPerson = App.DataService.NewPerson();
         }
 
-        public ICommand SaveCommand
+        [RelayCommand]
+        private async void Save()
         {
-            get
+            if (IsEdit)
             {
-                return new Command(async () =>
-                {
-                    if (IsEdit)
-                    {
-                        var isValid = Utilities.ValidationHelper.IsValid(EditPerson, Shell.Current.CurrentPage);
-                        if (!isValid)
-                            return;
+                var isValid = Utilities.ValidationHelper.IsValid(EditPerson, Shell.Current.CurrentPage);
+                if (!isValid)
+                    return;
 
-                        App.DataService.SavePerson(EditPerson);
-                        
-                        var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
-                                                                            "返回聯絡人列表", "再檢視此筆資料");
-                        if (isBack)
-                        {
-                            await Shell.Current.GoToAsync("..");
-                        }
-                    }
-                    IsEdit = !IsEdit;
-                });
+                App.DataService.SavePerson(EditPerson);
+
+                var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
+                                                                    "返回聯絡人列表", "再檢視此筆資料");
+                if (isBack)
+                {
+                    await Shell.Current.GoToAsync("..");
+                }
             }
+            IsEdit = !IsEdit;
         }
+
+        //public ICommand SaveCommand
+        //{
+        //    get
+        //    {
+        //        return new Command(async () =>
+        //        {
+        //            if (IsEdit)
+        //            {
+        //                var isValid = Utilities.ValidationHelper.IsValid(EditPerson, Shell.Current.CurrentPage);
+        //                if (!isValid)
+        //                    return;
+
+        //                App.DataService.SavePerson(EditPerson);
+                        
+        //                var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
+        //                                                                    "返回聯絡人列表", "再檢視此筆資料");
+        //                if (isBack)
+        //                {
+        //                    await Shell.Current.GoToAsync("..");
+        //                }
+        //            }
+        //            IsEdit = !IsEdit;
+        //        });
+        //    }
+        //}
     }
 }
