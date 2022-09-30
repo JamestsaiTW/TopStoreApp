@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CommunityToolkit.Mvvm.ComponentModel;
 using SQLite;
 
 namespace TopStoreApp.Models
 {
-    public class Person : Maui.Plugin.BaseBindingLibrary.BaseNotifyProperty
+    [INotifyPropertyChanged]
+    public partial class Person //: Maui.Plugin.BaseBindingLibrary.BaseNotifyProperty
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -14,7 +16,7 @@ namespace TopStoreApp.Models
         public string Name
         {
             get { return _name; }
-            set { OnPropertyChanged<string>(ref _name, value); }
+            set { SetProperty<string>(ref _name, value); }
         }
 
         private string _tel;
@@ -23,7 +25,7 @@ namespace TopStoreApp.Models
         public string Tel
         {
             get { return _tel; }
-            set { OnPropertyChanged<string>(ref _tel, value); }
+            set { SetProperty<string>(ref _tel, value); }
         }
 
         private string _email;
@@ -31,7 +33,7 @@ namespace TopStoreApp.Models
         public string Email
         {
             get { return _email; }
-            set { OnPropertyChanged<string>(ref _email, value); }
+            set { SetProperty<string>(ref _email, value); }
         }
 
         private string _address;
@@ -39,7 +41,7 @@ namespace TopStoreApp.Models
         public string Address
         {
             get { return _address; }
-            set { OnPropertyChanged<string>(ref _address, value); }
+            set { SetProperty<string>(ref _address, value); }
         }
     }
 }

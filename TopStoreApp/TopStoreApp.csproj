@@ -58,7 +58,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-		<PackageReference Include="Muai.Plugin.BaseBindingLibrary" Version="1.0.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
 		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
