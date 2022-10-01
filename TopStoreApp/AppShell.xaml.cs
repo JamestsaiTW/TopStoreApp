@@ -1,11 +1,10 @@
-﻿namespace TopStoreApp
+﻿namespace TopStoreApp;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-            Routing.RegisterRoute("People/PersonDetail", typeof(Pages.PersonDetailPage));
-        }
+        InitializeComponent();
+        Routing.RegisterRoute("People/PersonDetail", typeof(Pages.PersonDetailPage));
     }
 }

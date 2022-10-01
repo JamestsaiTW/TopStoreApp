@@ -3,12 +3,6 @@
     x:Class="TopStoreApp.Pages.PersonDetailPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <!--  xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"  -->
-    <!--
-    <ContentPage.BindingContext>
-        <viewmodels:PersonDetailPageViewModel />
-    </ContentPage.BindingContext>
-    -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
     </ContentPage.ToolbarItems>
@@ -28,7 +22,10 @@
                 Text="{Binding EditPerson.Name}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="NameError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="NameError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -44,7 +41,10 @@
                 Text="{Binding EditPerson.Tel}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="TelError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="TelError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -60,7 +60,10 @@
                 Text="{Binding EditPerson.Email}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="EmailError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="EmailError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -75,7 +78,10 @@
                 Text="{Binding EditPerson.Address}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="AddressError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="AddressError"
+                IsVisible="False"
+                TextColor="Red" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

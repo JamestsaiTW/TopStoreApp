@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
-using Microsoft.Maui;
+﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -17,20 +12,8 @@ namespace TopStoreApp.ViewModels
         [ObservableProperty]
         private Models.Person _editPerson;
 
-        //public Models.Person EditPerson
-        //{
-        //    get { return _editPerson; }
-        //    set { OnPropertyChanged<Models.Person>(ref _editPerson, value); }
-        //}
-
         [ObservableProperty]
         private bool _isEdit;
-
-        //public bool IsEdit
-        //{
-        //    get { return _isEdit; }
-        //    set { OnPropertyChanged<bool>(ref _isEdit, value); }
-        //}
 
         public string IsEditQueryString
         {
@@ -75,31 +58,5 @@ namespace TopStoreApp.ViewModels
             }
             IsEdit = !IsEdit;
         }
-
-        //public ICommand SaveCommand
-        //{
-        //    get
-        //    {
-        //        return new Command(async () =>
-        //        {
-        //            if (IsEdit)
-        //            {
-        //                var isValid = Utilities.ValidationHelper.IsValid(EditPerson, Shell.Current.CurrentPage);
-        //                if (!isValid)
-        //                    return;
-
-        //                App.DataService.SavePerson(EditPerson);
-                        
-        //                var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
-        //                                                                    "返回聯絡人列表", "再檢視此筆資料");
-        //                if (isBack)
-        //                {
-        //                    await Shell.Current.GoToAsync("..");
-        //                }
-        //            }
-        //            IsEdit = !IsEdit;
-        //        });
-        //    }
-        //}
     }
 }
