@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System.Collections.ObjectModel;
+using TopStoreApp.Models;
 
 namespace TopStoreApp.Services;
 
@@ -45,5 +46,30 @@ public class DbService : IDataService
     public Models.Person NewPerson() 
     {
         return new Models.Person();
+    }
+
+    public ObservableCollection<Product> GetGoods(string keyword = "")
+    {
+        throw new NotImplementedException();
+    }
+
+    public Product GetProduct(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int SaveProduct(Product product)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int DeleteProduct(Product product)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Product NewProduct()
+    {
+        throw new NotImplementedException();
     }
 }

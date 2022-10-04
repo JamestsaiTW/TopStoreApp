@@ -9,4 +9,10 @@ public interface IDataService
     int SavePerson(Models.Person person);
     int DeletePerson(Models.Person person);
     Models.Person NewPerson();
+
+    ObservableCollection<Models.Product> GetGoods(string keyword = "");
+    Models.Product GetProduct(int id);
+    int SaveProduct(Models.Product product);
+    int DeleteProduct(Models.Product product);
+    Models.Product NewProduct();
 }
