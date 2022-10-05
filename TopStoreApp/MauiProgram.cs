@@ -5,14 +5,14 @@ public static class MauiProgram
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
-        builder
-            .UseMauiApp<App>()
-            .ConfigureFonts(fonts =>
-            {
-                fonts.AddFont("FontAwesome5.otf", "FA5");
-            })
+		builder
+			.UseMauiApp<App>()
+			.ConfigureFonts(fonts =>
+			{
+				fonts.AddFont("FontAwesome5.otf", "FA5");
+			})
             .RegisterAppViewsAndViewModels()
-			.RegisterAppDataService();
+            .RegisterAppDataService();
 
         return builder.Build();
 	}
@@ -21,6 +21,9 @@ public static class MauiProgram
     {
         builder.Services.AddSingleton<Pages.PeoplePage>();
         builder.Services.AddSingleton<ViewModels.PeoplePageViewModel>();
+
+        builder.Services.AddSingleton<Pages.GoodsPage>();
+        builder.Services.AddSingleton<ViewModels.GoodsPageViewModel>();
 
         builder.Services.AddTransient<Pages.PersonDetailPage>();
         builder.Services.AddTransient<ViewModels.PersonDetailPageViewModel>();

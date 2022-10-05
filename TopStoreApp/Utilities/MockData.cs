@@ -6,6 +6,7 @@ public class MockData : Services.IDataService
 {
     private readonly ObservableCollection<Models.Person> people;
     private readonly ObservableCollection<Models.Product> goods;
+    
     public MockData()
     {
         people = new ObservableCollection<Models.Person>()
@@ -26,6 +27,7 @@ public class MockData : Services.IDataService
             new Models.Product {Id = 5, Sn = "B-0003", Name = "Sample Product B-300" , Images = "tmp.png", Price = 45M, Unit = "瓶", Msrp = 50M, Package = 5, Note = "There is no Note" },
         };
     }
+
     public ObservableCollection<Models.Person> GetPeople(string keyword = "")
     {
         return new ObservableCollection<Models.Person>(people.Where<Models.Person>((person) => person.Name.ToLower().Contains(keyword.ToLower())));
@@ -52,7 +54,6 @@ public class MockData : Services.IDataService
     {
         return people.Remove(person) ? 1 : 0;
     }
-
 
     public ObservableCollection<Models.Product> GetGoods(string keyword = "")
     {

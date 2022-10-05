@@ -7,6 +7,7 @@ namespace TopStoreApp.Services;
 public class DbService : IDataService
 {
     readonly SQLiteConnection sqliteDbConnection;
+
     public DbService()
     {
         var appRootDir = FileSystem.AppDataDirectory;
