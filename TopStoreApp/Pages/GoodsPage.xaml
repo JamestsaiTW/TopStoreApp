@@ -8,13 +8,22 @@
     x:DataType="viewmodels:GoodsPageViewModel">
 
     <StackLayout>
-        <CollectionView ItemSizingStrategy="MeasureFirstItem" ItemsSource="{Binding Goods}">
+        <CollectionView
+            ItemSizingStrategy="MeasureFirstItem"
+            ItemsSource="{Binding Goods}"
+            SelectionChangedCommand="{Binding EditCommand}"
+            SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}"
+            SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
                     <SwipeView Margin="0,6">
                         <SwipeView.LeftItems>
                             <SwipeItems>
-                                <SwipeItem BackgroundColor="Red" Text="刪除" />
+                                <SwipeItem
+                                    BackgroundColor="Red"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GoodsPageViewModel}}, Path=DeleteCommand}"
+                                    CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                                    Text="刪除" />
                             </SwipeItems>
                         </SwipeView.LeftItems>
                         <Grid>
@@ -106,6 +115,8 @@
                                 Grid.Column="2"
                                 Margin="0,6"
                                 BackgroundColor="Cyan"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GoodsPageViewModel}}, Path=MakeOrderCommand}"
+                                CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                                 HorizontalOptions="CenterAndExpand"
                                 Text="下訂單"
                                 TextColor="Chocolate"
