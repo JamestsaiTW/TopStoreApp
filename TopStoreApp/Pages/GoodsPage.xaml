@@ -26,6 +26,15 @@
                                     Text="刪除" />
                             </SwipeItems>
                         </SwipeView.LeftItems>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                    BackgroundColor="Cyan"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GoodsPageViewModel}}, Path=MakeOrderCommand}"
+                                    CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                                    Text="下訂單" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -35,7 +44,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*" />
                                 <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="Auto" />
+                                <!--<ColumnDefinition Width="Auto" />-->
                             </Grid.ColumnDefinitions>
                             <Label
                                 Grid.Row="0"
@@ -109,18 +118,18 @@
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
+                            <!--
                             <Button
                                 Grid.Row="0"
                                 Grid.RowSpan="3"
                                 Grid.Column="2"
                                 Margin="0,6"
                                 BackgroundColor="Cyan"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GoodsPageViewModel}}, Path=MakeOrderCommand}"
-                                CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                                 HorizontalOptions="CenterAndExpand"
                                 Text="下訂單"
                                 TextColor="Chocolate"
                                 VerticalOptions="Center" />
+                            -->
                         </Grid>
                     </SwipeView>
                 </DataTemplate>
