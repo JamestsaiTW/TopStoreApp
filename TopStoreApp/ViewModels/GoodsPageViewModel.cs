@@ -12,16 +12,16 @@ public partial class GoodsPageViewModel: BasePageViewModel
     [RelayCommand]
     private async void Add()
     {
-        await Shell.Current.DisplayAlert("Alert", "ProductDetailPageNotImplement", "Cancel");
-        //await Shell.Current.GoToAsync("//Goods/ProductDetailPage?isEdit=true");
+        //await Shell.Current.DisplayAlert("Alert", "ProductDetailPageNotImplement", "Cancel");
+        await Shell.Current.GoToAsync("//Goods/ProductDetail?isEdit=true");
     }
 
     [RelayCommand]
     private async void Edit(Models.Product product)
     {
-        await Shell.Current.DisplayAlert("Alert", $"You select the {product.Name}, " +
-                                                  $"but ProductDetailPageNotImplement", "Cancel");
-        //await Shell.Current.GoToAsync($"//Goods/ProductDetailPage?isEdit=false&personId={product.Id}");
+        //await Shell.Current.DisplayAlert("Alert", $"You select the {product.Name}, " +
+        //                                          $"but ProductDetailPageNotImplement", "Cancel");
+        await Shell.Current.GoToAsync($"//Goods/ProductDetail?isEdit=false&personId={product.Id}");
     }
 
     [RelayCommand]
@@ -39,7 +39,7 @@ public partial class GoodsPageViewModel: BasePageViewModel
     private async void MakeOrder(Models.Product product)
     {
         await Shell.Current.DisplayAlert("Alert", "MakeOrderPageNotImplement", "Cancel");
-        //await Shell.Current.GoToAsync($"//Orders/MakeOrderPage?productId={product.Id}");
+        //await Shell.Current.GoToAsync($"//Orders/MakeOrder?productId={product.Id}");
     }
 
     [RelayCommand]
