@@ -22,4 +22,13 @@ public partial class GoodsPage : ContentPage
         var vm = BindingContext as ViewModels.GoodsPageViewModel;
         vm.Goods = App.DataService.GetGoods();
     }
+
+    private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var vm = BindingContext as ViewModels.GoodsPageViewModel;
+        if (e.NewTextValue?.Length == 0 && e.OldTextValue?.Length > 0)
+        {
+            vm.SearchCommand.Execute(string.Empty);
+        }
+    }
 }

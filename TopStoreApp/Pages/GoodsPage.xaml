@@ -6,8 +6,17 @@
     xmlns:models="clr-namespace:TopStoreApp.Models"
     xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
     x:DataType="viewmodels:GoodsPageViewModel">
-
-    <StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddCommand}" Text="新增" />
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <SearchBar
+            HorizontalOptions="FillAndExpand"
+            Placeholder="請輸入要搜尋的物品名稱..."
+            SearchCommand="{Binding SearchCommand}"
+            SearchCommandParameter="{Binding Source={RelativeSource Self}, Path=Text}"
+            TextChanged="SearchBar_TextChanged"
+            TextTransform="Lowercase" />
         <CollectionView
             ItemSizingStrategy="MeasureFirstItem"
             ItemsSource="{Binding Goods}"
@@ -135,6 +144,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </StackLayout>
+    </VerticalStackLayout>
 
 </ContentPage>
