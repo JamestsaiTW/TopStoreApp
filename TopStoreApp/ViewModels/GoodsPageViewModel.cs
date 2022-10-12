@@ -21,7 +21,7 @@ public partial class GoodsPageViewModel: BasePageViewModel
     {
         //await Shell.Current.DisplayAlert("Alert", $"You select the {product.Name}, " +
         //                                          $"but ProductDetailPageNotImplement", "Cancel");
-        await Shell.Current.GoToAsync($"//Goods/ProductDetail?isEdit=false&personId={product.Id}");
+        await Shell.Current.GoToAsync($"//Goods/ProductDetail?isEdit=false&productId={product.Id}");
     }
 
     [RelayCommand]

@@ -2,8 +2,13 @@ namespace TopStoreApp.Pages;
 
 public partial class ProductDetailPage : ContentPage
 {
-	public ProductDetailPage()
+	private ProductDetailPage()
 	{
 		InitializeComponent();
 	}
+
+    public ProductDetailPage(ViewModels.ProductDetailPageViewModel productDetailPageViewModel) : this()
+    {
+        BindingContext = productDetailPageViewModel;
+    }
 }
