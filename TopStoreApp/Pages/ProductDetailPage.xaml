@@ -9,116 +9,124 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
     </ContentPage.ToolbarItems>
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="StartAndExpand"
-            HorizontalTextAlignment="Start"
-            Text="名稱:"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Entry
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Start"
-            IsEnabled="{Binding IsEdit}"
-            Placeholder="請輸入名稱..."
-            Text="{Binding EditProduct.Name}"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Label x:Name="NameError" IsVisible="False" TextColor="Red" />
-        <Label
-            HorizontalOptions="StartAndExpand"
-            HorizontalTextAlignment="Start"
-            Text="商品編號:"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Entry
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Start"
-            IsEnabled="{Binding IsEdit}"
-            Keyboard="Text"
-            Placeholder="請輸入商品編號..."
-            Text="{Binding EditProduct.Sn}"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Label x:Name="SnError" IsVisible="False" TextColor="Red" />
-        <Label
-            HorizontalOptions="StartAndExpand"
-            HorizontalTextAlignment="Start"
-            Text="商品建議售價:"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Entry
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Start"
-            IsEnabled="{Binding IsEdit}"
-            Keyboard="Numeric"
-            Placeholder="請輸入建議售價..."
-            Text="{Binding EditProduct.Msrp}"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Label x:Name="MsrpError" IsVisible="False" TextColor="Red" />
-        <Label
-            HorizontalOptions="StartAndExpand"
-            HorizontalTextAlignment="Start"
-            Text="商品售價:"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Entry
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Start"
-            IsEnabled="{Binding IsEdit}"
-            Placeholder="請輸入售價..."
-            Text="{Binding EditProduct.Price}"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Label x:Name="PriceError" IsVisible="False" TextColor="Red" />
-        <Label
-            HorizontalOptions="StartAndExpand"
-            HorizontalTextAlignment="Start"
-            Text="單位:"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Entry
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Start"
-            IsEnabled="{Binding IsEdit}"
-            Keyboard="Text"
-            Placeholder="請輸入單位..."
-            Text="{Binding EditProduct.Unit}"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Label x:Name="UnitError" IsVisible="False" TextColor="Red" />
-        <Label
-            HorizontalOptions="StartAndExpand"
-            HorizontalTextAlignment="Start"
-            Text="包裝個數:"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Entry
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Start"
-            IsEnabled="{Binding IsEdit}"
-            Keyboard="Numeric"
-            Placeholder="請輸入包裝個數..."
-            Text="{Binding EditProduct.Package}"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Label x:Name="PackageError" IsVisible="False" TextColor="Red" />
-        <Label
-            HorizontalOptions="StartAndExpand"
-            HorizontalTextAlignment="Start"
-            Text="備註:"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Entry
-            HorizontalOptions="FillAndExpand"
-            HorizontalTextAlignment="Start"
-            IsEnabled="{Binding IsEdit}"
-            Keyboard="Text"
-            Placeholder="請輸入備註..."
-            Text="{Binding EditProduct.Note}"
-            VerticalOptions="Center"
-            VerticalTextAlignment="Center" />
-        <Label x:Name="NoteError" IsVisible="False" TextColor="Red" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image
+                Margin="0,10"
+                HorizontalOptions="FillAndExpand"
+                IsEnabled="{Binding IsEdit}"
+                Source="{Binding EditProduct.Images}"
+                VerticalOptions="Center" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="名稱:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Placeholder="請輸入名稱..."
+                Text="{Binding EditProduct.Name}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="NameError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="商品編號:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Keyboard="Text"
+                Placeholder="請輸入商品編號..."
+                Text="{Binding EditProduct.Sn}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="SnError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="商品建議售價:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Keyboard="Numeric"
+                Placeholder="請輸入建議售價..."
+                Text="{Binding EditProduct.Msrp}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="MsrpError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="商品售價:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Placeholder="請輸入售價..."
+                Text="{Binding EditProduct.Price}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="PriceError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="單位:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Keyboard="Text"
+                Placeholder="請輸入單位..."
+                Text="{Binding EditProduct.Unit}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="UnitError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="包裝個數:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Keyboard="Numeric"
+                Placeholder="請輸入包裝個數..."
+                Text="{Binding EditProduct.Package}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="PackageError" IsVisible="False" TextColor="Red" />
+            <Label
+                HorizontalOptions="StartAndExpand"
+                HorizontalTextAlignment="Start"
+                Text="備註:"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Start"
+                IsEnabled="{Binding IsEdit}"
+                Keyboard="Text"
+                Placeholder="請輸入備註..."
+                Text="{Binding EditProduct.Note}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Label x:Name="NoteError" IsVisible="False" TextColor="Red" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

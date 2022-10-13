@@ -67,7 +67,7 @@ public class MockData : Services.IDataService
 
     public Models.Product NewProduct()
     {
-        return new Models.Product() { Id = goods.Last().Id + 1 };
+        return new Models.Product() { Id = goods.Last().Id + 1 , Images = "tmp.png" };
     }
 
     public int SaveProduct(Models.Product product)
