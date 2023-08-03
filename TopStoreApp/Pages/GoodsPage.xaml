@@ -11,6 +11,7 @@
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
         <SearchBar
+            BackgroundColor="{StaticResource White}"
             HorizontalOptions="FillAndExpand"
             Placeholder="請輸入要搜尋的物品名稱..."
             SearchCommand="{Binding SearchCommand}"

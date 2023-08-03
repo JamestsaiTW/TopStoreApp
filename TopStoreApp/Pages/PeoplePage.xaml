@@ -9,7 +9,8 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar
+            <SearchBar 
+                BackgroundColor="{StaticResource White}"
                 Placeholder="請輸入要搜尋的聯絡人姓名..."
                 SearchCommand="{Binding SearchCommand}"
                 SearchCommandParameter="{Binding Source={RelativeSource Self}, Path=Text}"

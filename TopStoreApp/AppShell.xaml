@@ -6,24 +6,24 @@
     xmlns:local="clr-namespace:TopStoreApp"
     xmlns:pages="clr-namespace:TopStoreApp.Pages">
     <TabBar>
-        <ShellContent Title="聯絡人" Route="People" ContentTemplate="{DataTemplate pages:PeoplePage}">
+        <ShellContent Title="聯絡人" Route="People" ContentTemplate="{DataTemplate pages:PeoplePage}" >
             <ShellContent.Icon>
-                <FontImageSource FontFamily="FA5" Glyph="&#xf2bd;" />
+                <FontImageSource FontFamily="FA5" Glyph="&#xf2bd;" Color="{StaticResource Primary}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="物品項" Route="Goods" ContentTemplate="{DataTemplate pages:GoodsPage}">
             <ShellContent.Icon>
-                <FontImageSource FontFamily="FA5" Glyph="&#xf1ea;" />
+                <FontImageSource FontFamily="FA5" Glyph="&#xf1ea;" Color="{StaticResource Primary}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="訂單" Route="Orders" ContentTemplate="{DataTemplate pages:OrdersPage}">
             <ShellContent.Icon>
-                <FontImageSource FontFamily="FA5" Glyph="&#xf022;" />
+                <FontImageSource FontFamily="FA5" Glyph="&#xf022;" Color="{StaticResource Primary}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="設定" Route="Settings" ContentTemplate="{DataTemplate pages:SettingsPage}">
             <ShellContent.Icon>
-                <FontImageSource FontFamily="FA5" Glyph="&#xf185;" />
+                <FontImageSource FontFamily="FA5" Glyph="&#xf185;" Color="{StaticResource Primary}"/>
             </ShellContent.Icon>
         </ShellContent>
     </TabBar>
