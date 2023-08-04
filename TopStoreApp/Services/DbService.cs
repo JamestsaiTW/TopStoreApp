@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System.Collections.ObjectModel;
+using TopStoreApp.Models;
 
 namespace TopStoreApp.Services;
 
@@ -69,6 +70,11 @@ public class DbService : IDataService
     }
 
     public Models.Product NewProduct()
+    {
+        throw new NotImplementedException();
+    }
+
+    public ObservableCollection<SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
     {
         throw new NotImplementedException();
     }

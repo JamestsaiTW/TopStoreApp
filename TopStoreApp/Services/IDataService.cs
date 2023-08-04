@@ -15,4 +15,6 @@ public interface IDataService
     int SaveProduct(Models.Product product);
     int DeleteProduct(Models.Product product);
     Models.Product NewProduct();
+
+    ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime = null);
 }

@@ -6,7 +6,9 @@ public class MockData : Services.IDataService
 {
     private readonly ObservableCollection<Models.Person> people;
     private readonly ObservableCollection<Models.Product> goods;
-    
+
+    private readonly ObservableCollection<Models.SummaryOrder> summaryOrders;
+
     public MockData()
     {
         people = new ObservableCollection<Models.Person>()
@@ -26,6 +28,20 @@ public class MockData : Services.IDataService
             new Models.Product {Id = 4, Sn = "B-0002", Name = "Sample Product B-220" , Images = "tmp.png", Price = 180M, Unit = "組", Msrp = 250M, Package = 1, Note = "There is no Note" },
             new Models.Product {Id = 5, Sn = "B-0003", Name = "Sample Product B-300" , Images = "tmp.png", Price = 45M, Unit = "瓶", Msrp = 50M, Package = 5, Note = "There is no Note" },
         };
+
+        summaryOrders = new ObservableCollection<Models.SummaryOrder>()
+        {
+           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/04") , Count = 9 },
+           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/03") , Count = 7 },
+           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/02") , Count = 5 },
+           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/01") , Count = 3 },
+           new Models.SummaryOrder { Summary = DateTime.Parse("2023/07/31") , Count = 4 },
+        };
+    }
+
+    public ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime)
+    {
+        return summaryOrders;
     }
 
     public ObservableCollection<Models.Person> GetPeople(string keyword = "")
