@@ -17,6 +17,11 @@ public class DbService : IDataService
         sqliteDbConnection.CreateTable<Models.Person>();
     }
 
+    public ObservableCollection<SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
+    {
+        throw new NotImplementedException();
+    }
+
     public ObservableCollection<Models.Person> GetPeople(string keyword = "")
     {
         var people = sqliteDbConnection.Table<Models.Person>()
@@ -74,8 +79,4 @@ public class DbService : IDataService
         throw new NotImplementedException();
     }
 
-    public ObservableCollection<SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
-    {
-        throw new NotImplementedException();
-    }
 }

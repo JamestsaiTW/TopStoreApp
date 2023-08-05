@@ -39,7 +39,7 @@ public class MockData : Services.IDataService
         };
     }
 
-    public ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime)
+    public ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
     {
         return summaryOrders;
     }
