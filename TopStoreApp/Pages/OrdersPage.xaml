@@ -2,13 +2,62 @@
 <ContentPage
     x:Class="TopStoreApp.Pages.OrdersPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TopStoreApp.Models"
+    xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
+    x:DataType="viewmodels:OrdersPageViewModel">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+        <VerticalStackLayout>
+            <CollectionView
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding SummaryOrders}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:SummaryOrder">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="0"
+                                FontSize="Large"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                LineBreakMode="HeadTruncation"
+                                Text="{Binding Summary, StringFormat='{0: yyyy/MM/dd (ddd)}'}"
+                                VerticalOptions="CenterAndExpand"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="1"
+                                Margin="6,0"
+                                FontSize="Medium"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="End"
+                                VerticalOptions="CenterAndExpand"
+                                VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span FontAttributes="Bold" Text="{Binding Count}" />
+                                            <Span Text="筆" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Button
+                                Grid.Column="2"
+                                Margin="10,6"
+                                BackgroundColor="Cyan"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="&gt;&gt;"
+                                TextColor="Chocolate"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
