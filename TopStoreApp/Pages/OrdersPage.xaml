@@ -50,6 +50,8 @@
                                 Grid.Column="2"
                                 Margin="10,6"
                                 BackgroundColor="Cyan"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:OrdersPageViewModel}}, Path=SelectCommand}"
+                                CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                                 HorizontalOptions="CenterAndExpand"
                                 Text="&gt;&gt;"
                                 TextColor="Chocolate"

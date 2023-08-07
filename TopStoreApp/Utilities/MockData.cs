@@ -8,7 +8,7 @@ public class MockData : Services.IDataService
     private readonly ObservableCollection<Models.Product> goods;
 
     private readonly ObservableCollection<Models.SummaryOrder> summaryOrders;
-
+   
     public MockData()
     {
         people = new ObservableCollection<Models.Person>()
@@ -31,8 +31,8 @@ public class MockData : Services.IDataService
 
         summaryOrders = new ObservableCollection<Models.SummaryOrder>()
         {
-           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/04") , Count = 9 },
-           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/03") , Count = 7 },
+           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/04") , Count = 1 },
+           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/03") , Count = 2 },
            new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/02") , Count = 5 },
            new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/01") , Count = 3 },
            new Models.SummaryOrder { Summary = DateTime.Parse("2023/07/31") , Count = 4 },
