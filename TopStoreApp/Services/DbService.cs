@@ -22,6 +22,11 @@ public class DbService : IDataService
         throw new NotImplementedException();
     }
 
+    public ObservableCollection<OrderOwner> GetOrderOwners(DateTime orderDate)
+    {
+        throw new NotImplementedException();
+    }
+
     public ObservableCollection<Models.Person> GetPeople(string keyword = "")
     {
         var people = sqliteDbConnection.Table<Models.Person>()
@@ -78,5 +83,4 @@ public class DbService : IDataService
     {
         throw new NotImplementedException();
     }
-
 }
