@@ -6,8 +6,13 @@ namespace TopStoreApp.Pages;
 
 public partial class OrderOwnersPage : ContentPage
 {
-    public OrderOwnersPage()
+    private OrderOwnersPage()
     {
         InitializeComponent();
+    }
+
+    public OrderOwnersPage(ViewModels.OrderOwnersPageViewModel orderOwnersPageViewModel) : this()
+    {
+        BindingContext = orderOwnersPageViewModel;
     }
 }

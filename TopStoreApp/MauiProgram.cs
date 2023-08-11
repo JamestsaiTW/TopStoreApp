@@ -34,6 +34,9 @@ public static class MauiProgram
         builder.Services.AddTransient<Pages.ProductDetailPage>();
         builder.Services.AddTransient<ViewModels.ProductDetailPageViewModel>();
 
+        builder.Services.AddTransient<Pages.OrderOwnersPage>();
+        builder.Services.AddTransient<ViewModels.OrderOwnersPageViewModel>();
+
         return builder;
     }
 
