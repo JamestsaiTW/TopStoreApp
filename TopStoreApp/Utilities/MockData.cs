@@ -136,7 +136,7 @@ public class MockData : Services.IDataService
         var orderOwners = from order in orders
                     join person in people on order.PersonId equals person.Id
                     where order.OrderDate.Date == orderDate.Date
-                    select new Models.OrderOwner { Owner = person.Name };
+                    select new Models.OrderOwner { Owner = person.Name , OrderId = order.Id };
 
         return new ObservableCollection<Models.OrderOwner>(orderOwners);
     }

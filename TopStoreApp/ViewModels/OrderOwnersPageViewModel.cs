@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using TopStoreApp.Models;
 
 namespace TopStoreApp.ViewModels;
 
@@ -20,6 +22,14 @@ public partial class OrderOwnersPageViewModel : BasePageViewModel
             
             OrderOwners = App.DataService.GetOrderOwners(OrderDate);
         }
+    }
+
+    [RelayCommand]
+    private async void Select(OrderOwner order)
+    {
+        await Shell.Current.DisplayAlert("Order Selected",
+                                        $"Order Owner: {order.Owner}\r\n" +
+                                        $"Order Id: {order.OrderId}", "OK");
     }
 }
 

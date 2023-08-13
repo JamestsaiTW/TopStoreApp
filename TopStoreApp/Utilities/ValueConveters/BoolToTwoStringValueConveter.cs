@@ -5,7 +5,7 @@ using Microsoft.Maui.Controls;
 
 namespace TopStoreApp.Utilities.ValueConveters;
 
-public class BoolToTwoStringVauleConveter : IValueConverter
+public class BoolToTwoStringValueConveter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

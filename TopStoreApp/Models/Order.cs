@@ -16,8 +16,8 @@ public partial class OrderOwner
 {
     public string Owner { get; set; }
     //public DateTime OrderDate { get; set; }
+    public int OrderId { get; set; }
 }
-
 
 public class Order
 {

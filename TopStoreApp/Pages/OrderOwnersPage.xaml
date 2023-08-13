@@ -6,7 +6,8 @@
     xmlns:models="clr-namespace:TopStoreApp.Models"
     xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
     Title="{Binding OrderDate, StringFormat='{0: yyyy/MM/dd (ddd)}'}"
-    x:DataType="viewmodels:OrderOwnersPageViewModel">
+    x:DataType="viewmodels:OrderOwnersPageViewModel"
+    Shell.TabBarIsVisible="False">
     <ContentPage.Content>
         <VerticalStackLayout>
             <CollectionView
@@ -34,6 +35,8 @@
                                 Grid.Column="2"
                                 Margin="10,6"
                                 BackgroundColor="Cyan"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:OrderOwnersPageViewModel}}, Path=SelectCommand}"
+                                CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                                 HorizontalOptions="CenterAndExpand"
                                 Text="&gt;&gt;"
                                 TextColor="Chocolate"
