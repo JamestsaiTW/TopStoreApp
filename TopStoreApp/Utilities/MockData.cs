@@ -7,8 +7,7 @@ public class MockData : Services.IDataService
     private readonly ObservableCollection<Models.Person> people;
     private readonly ObservableCollection<Models.Product> goods;
 
-    private readonly ObservableCollection<Models.SummaryOrder> summaryOrders;
-    private readonly ObservableCollection<Models.OrderOwner> orderOwners;
+    private readonly ObservableCollection<Models.Order> orders;
 
     public MockData()
     {
@@ -30,89 +29,95 @@ public class MockData : Services.IDataService
             new Models.Product {Id = 5, Sn = "B-0003", Name = "Sample Product B-300" , Images = "tmp.png", Price = 45M, Unit = "瓶", Msrp = 50M, Package = 5, Note = "There is no Note" },
         };
 
-        summaryOrders = new ObservableCollection<Models.SummaryOrder>()
-        {
-           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/04") , Count = 1 },
-           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/03") , Count = 2 },
-           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/02") , Count = 5 },
-           new Models.SummaryOrder { Summary = DateTime.Parse("2023/08/01") , Count = 3 },
-           new Models.SummaryOrder { Summary = DateTime.Parse("2023/07/31") , Count = 4 },
-        };
-
-        orderOwners = new ObservableCollection<Models.OrderOwner> {
-            new Models.OrderOwner
+        orders = new ObservableCollection<Models.Order> {
+            new Models.Order
             {
-                Owner = "Mandy Q",
+                Id = 1,
+                PersonId = 5,
                 OrderDate = DateTime.Parse("2023/08/04")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "James Tsai",
+                Id = 2,
+                PersonId = 1,
                 OrderDate = DateTime.Parse("2023/08/03")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Da Wang",
+                Id = 3,
+                PersonId = 4,
                 OrderDate = DateTime.Parse("2023/08/03")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Andy Kao",
+                Id = 4,
+                PersonId = 2,
                 OrderDate = DateTime.Parse("2023/08/02")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "John Chang",
+                Id = 5,
+                PersonId = 3,
                 OrderDate = DateTime.Parse("2023/08/02")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Da Wang",
+                Id = 6,
+                PersonId = 4,
                 OrderDate = DateTime.Parse("2023/08/02")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "James Tsai",
+                Id = 7,
+                PersonId = 1,
                 OrderDate = DateTime.Parse("2023/08/02")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Mandy Q",
+                Id = 8,
+                PersonId = 5,
                 OrderDate = DateTime.Parse("2023/08/02")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Andy Kao",
+                Id = 9,
+                PersonId = 2,
                 OrderDate = DateTime.Parse("2023/08/01")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "John Chang",
+                Id = 10,
+                PersonId = 3,
                 OrderDate = DateTime.Parse("2023/08/01")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Da Wang",
+                Id = 11,
+                PersonId = 4,
                 OrderDate = DateTime.Parse("2023/08/01")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Andy Kao",
+                Id = 12,
+                PersonId = 2,
                 OrderDate = DateTime.Parse("2023/07/31")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "John Chang",
+                Id = 13,
+                PersonId = 3,
                 OrderDate = DateTime.Parse("2023/07/31")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Da Wang",
+                Id = 14,
+                PersonId = 4,
                 OrderDate = DateTime.Parse("2023/07/31")
             },
-            new Models.OrderOwner
+            new Models.Order
             {
-                Owner = "Mandy Q",
+                Id = 15,
+                PersonId = 5,
                 OrderDate = DateTime.Parse("2023/07/31")
             },
         };
@@ -120,12 +125,20 @@ public class MockData : Services.IDataService
 
     public ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
     {
-        return summaryOrders;
+        var summaryOrders = from order in orders
+                    group order by order.OrderDate.Date into g
+                    select new Models.SummaryOrder { Summary = g.Key, Count = g.Count() };
+        return new ObservableCollection<Models.SummaryOrder>(summaryOrders);
     }
 
     public ObservableCollection<Models.OrderOwner> GetOrderOwners(DateTime orderDate)
     {
-        return new ObservableCollection<Models.OrderOwner>(orderOwners.Where(item => item.OrderDate.Date == orderDate.Date));
+        var orderOwners = from order in orders
+                    join person in people on order.PersonId equals person.Id
+                    where order.OrderDate.Date == orderDate.Date
+                    select new Models.OrderOwner { Owner = person.Name };
+
+        return new ObservableCollection<Models.OrderOwner>(orderOwners);
     }
 
     public ObservableCollection<Models.Person> GetPeople(string keyword = "")
