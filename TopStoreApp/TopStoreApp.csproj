@@ -52,10 +52,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Models\OrderDetail.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.5" />

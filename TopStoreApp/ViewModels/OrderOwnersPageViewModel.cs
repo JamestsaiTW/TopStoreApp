@@ -27,9 +27,13 @@ public partial class OrderOwnersPageViewModel : BasePageViewModel
     [RelayCommand]
     private async void Select(OrderOwner order)
     {
-        await Shell.Current.DisplayAlert("Order Selected",
-                                        $"Order Owner: {order.Owner}\r\n" +
-                                        $"Order Id: {order.OrderId}", "OK");
+        //await Shell.Current.DisplayAlert("Order Selected",
+        //                                $"Order Owner: {order.Owner}\r\n" +
+        //                                $"Order Id: {order.OrderId}", "OK");
+        await Shell.Current.GoToAsync($"//Orders/OrderOwners/OrderDetails?" +
+                                            $"orderId={order.OrderId}&" +
+                                            $"orderOwner={order.Owner}&" +
+                                            $"orderDate={OrderDate.Date.ToString("yyyy/MM/dd (ddd)")}");
     }
 }
 
