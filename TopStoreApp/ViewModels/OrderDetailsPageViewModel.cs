@@ -23,7 +23,7 @@ public partial class OrderDetailsPageViewModel : BasePageViewModel
     {
         set
         {
-
+            //OrderDetailDisplays = App.DataService.GetOrderDetailDisplays(OrderId);
         }
     }
 
