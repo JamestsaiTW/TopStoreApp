@@ -18,4 +18,5 @@ public interface IDataService
 
     ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime = null);
     ObservableCollection<Models.OrderOwner> GetOrderOwners(DateTime orderDate);
+    ObservableCollection<Models.OrderDetailDisplay> GetOrderDetailDisplays(int orderId);
 }

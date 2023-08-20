@@ -19,6 +19,7 @@ public class OrderDetail
     public int OrderId { get; set; }
     [NotNull]
     public int ProductId { get; set; }
+    [NotNull]
     public decimal Quantity { get; set; }
     [NotNull]
     public decimal Price { get; set; }

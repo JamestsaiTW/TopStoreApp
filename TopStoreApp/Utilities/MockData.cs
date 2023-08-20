@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using TopStoreApp.Pages;
 
 namespace TopStoreApp.Utilities;
 
@@ -8,6 +9,7 @@ public class MockData : Services.IDataService
     private readonly ObservableCollection<Models.Product> goods;
 
     private readonly ObservableCollection<Models.Order> orders;
+    private readonly ObservableCollection<Models.OrderDetail> orderDetails;
 
     public MockData()
     {
@@ -121,6 +123,52 @@ public class MockData : Services.IDataService
                 OrderDate = DateTime.Parse("2023/07/31")
             },
         };
+
+        orderDetails = new ObservableCollection<Models.OrderDetail>()
+        {
+            new Models.OrderDetail { Id =  1, OrderId = 1, ProductId = 1, Quantity =   5, Price = 190, Note = "無" },
+            new Models.OrderDetail { Id =  2, OrderId = 1, ProductId = 2, Quantity =  40, Price =  45, Note = "無" },
+            new Models.OrderDetail { Id =  3, OrderId = 1, ProductId = 4, Quantity =  20, Price = 170, Note = "無" },
+                                           
+            new Models.OrderDetail { Id =  4, OrderId = 2, ProductId = 3, Quantity = 200, Price =  50, Note = "無" },
+            new Models.OrderDetail { Id =  5, OrderId = 2, ProductId = 2, Quantity = 100, Price =  40, Note = "無" },
+            new Models.OrderDetail { Id =  6, OrderId = 2, ProductId = 4, Quantity = 100, Price = 150, Note = "無" },
+            new Models.OrderDetail { Id =  7, OrderId = 2, ProductId = 5, Quantity =  20, Price =  40, Note = "無" },
+                                           
+            new Models.OrderDetail { Id =  8, OrderId = 3, ProductId = 1, Quantity =  10, Price = 180, Note = "無" },
+            new Models.OrderDetail { Id =  9, OrderId = 3, ProductId = 2, Quantity =  30, Price =  45, Note = "無" },
+
+            new Models.OrderDetail { Id = 10, OrderId = 4, ProductId = 3, Quantity = 200, Price =  50, Note = "無" },
+            new Models.OrderDetail { Id = 11, OrderId = 4, ProductId = 2, Quantity =  50, Price =  45, Note = "無" },
+            new Models.OrderDetail { Id = 13, OrderId = 4, ProductId = 5, Quantity =  20, Price =  40, Note = "無" },
+
+            new Models.OrderDetail { Id = 14, OrderId = 5, ProductId = 1, Quantity =   1, Price = 200, Note = "無" },
+            new Models.OrderDetail { Id = 15, OrderId = 5, ProductId = 2, Quantity =  10, Price =  50, Note = "無" },
+            new Models.OrderDetail { Id = 16, OrderId = 5, ProductId = 4, Quantity =  10, Price = 180, Note = "無" },
+
+            new Models.OrderDetail { Id = 17, OrderId = 6, ProductId = 1, Quantity = 200, Price = 160, Note = "無" },
+
+            new Models.OrderDetail { Id = 18, OrderId = 7, ProductId = 2, Quantity = 500, Price =  35, Note = "無" },
+
+            new Models.OrderDetail { Id = 19, OrderId = 8, ProductId = 1, Quantity =  20, Price = 160, Note = "無" },
+            new Models.OrderDetail { Id = 20, OrderId = 8, ProductId = 5, Quantity =  50, Price =  40, Note = "無" },
+        };
+
+    }
+
+    public ObservableCollection<Models.OrderDetailDisplay> GetOrderDetailDisplays(int orderId)
+    {
+        var orderDetailDisplays = from orderDetail in orderDetails
+                                  join product in goods on orderDetail.ProductId equals product.Id
+                                  where orderDetail.OrderId == orderId
+                                  select new Models.OrderDetailDisplay
+                                  {
+                                      OrderDetailId = orderDetail.Id,
+                                      ProductName = product.Name,
+                                      Quantity = orderDetail.Quantity,
+                                      Note = orderDetail.Note
+                                  };
+        return new ObservableCollection<Models.OrderDetailDisplay>(orderDetailDisplays);
     }
 
     public ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)

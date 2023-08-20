@@ -17,6 +17,11 @@ public class DbService : IDataService
         sqliteDbConnection.CreateTable<Models.Person>();
     }
 
+    public ObservableCollection<OrderDetailDisplay> GetOrderDetailDisplays(int orderId)
+    {
+        throw new NotImplementedException();
+    }
+
     public ObservableCollection<SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
     {
         throw new NotImplementedException();

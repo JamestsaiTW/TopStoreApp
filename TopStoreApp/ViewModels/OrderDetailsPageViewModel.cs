@@ -23,7 +23,7 @@ public partial class OrderDetailsPageViewModel : BasePageViewModel
     {
         set
         {
-            //OrderDetailDisplays = App.DataService.GetOrderDetailDisplays(OrderId);
+            OrderDetailDisplays = App.DataService.GetOrderDetailDisplays(value);
         }
     }
 
@@ -48,6 +48,6 @@ public partial class OrderDetailsPageViewModel : BasePageViewModel
     {
         await Shell.Current.DisplayAlert("Order Detail Selected",
                                         $"Order Detail: {orderDetailDisplay.ProductName}\r\n" +
-                                        $"Order Id: {orderDetailDisplay.OrderDetailId}", "OK");
+                                        $"OrderDetail Id: {orderDetailDisplay.OrderDetailId}", "OK");
     }
 }
