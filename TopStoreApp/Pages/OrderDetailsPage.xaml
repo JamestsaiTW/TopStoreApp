@@ -20,13 +20,18 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:OrderDetailDisplay">
                     <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
                             <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="1*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label
                             Grid.Column="0"
+                            Grid.ColumnSpan="2"
                             FontSize="Large"
                             HorizontalOptions="FillAndExpand"
                             HorizontalTextAlignment="Start"
@@ -34,7 +39,42 @@
                             Text="{Binding ProductName}"
                             VerticalOptions="CenterAndExpand"
                             VerticalTextAlignment="Center" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontSize="Small"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Start"
+                            VerticalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="數量: " />
+                                        <Span FontAttributes="Bold" Text="{Binding Quantity}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontSize="Small"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Start"
+                            VerticalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="備註: " />
+                                        <Span FontAttributes="Bold" Text="{Binding Note}" />
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                         <Button
+                            Grid.RowSpan="2"
                             Grid.Column="2"
                             Margin="10,6"
                             BackgroundColor="Cyan"

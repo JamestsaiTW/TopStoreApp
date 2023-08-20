@@ -61,6 +61,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\OrderDetailShowPage.xaml.cs">
+	    <DependentUpon>OrderDetailShowPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\OrderDetailShowPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\OrderDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -46,8 +46,10 @@ public partial class OrderDetailsPageViewModel : BasePageViewModel
     [RelayCommand]
     private async void Select(OrderDetailDisplay orderDetailDisplay)
     {
-        await Shell.Current.DisplayAlert("Order Detail Selected",
-                                        $"Order Detail: {orderDetailDisplay.ProductName}\r\n" +
-                                        $"OrderDetail Id: {orderDetailDisplay.OrderDetailId}", "OK");
+        //await Shell.Current.DisplayAlert("Order Detail Selected",
+        //                                $"Order Detail: {orderDetailDisplay.ProductName}\r\n" +
+        //                                $"OrderDetail Id: {orderDetailDisplay.OrderDetailId}", "OK");
+        await Shell.Current.GoToAsync($"//Orders/OrderOwners/OrderDetails/OrderDetailShow?" +
+                                      $"orderDetailId={orderDetailDisplay.OrderDetailId}");
     }
 }
