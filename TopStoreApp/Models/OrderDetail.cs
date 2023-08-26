@@ -11,6 +11,19 @@ public partial class OrderDetailDisplay
     public int OrderDetailId { get; set; }
     public string Note { get; set; }
 }
+
+[INotifyPropertyChanged]
+public partial class OrderDetailShow
+{
+    public int OrderDetailId { get; set; }
+    public string ProductName { get; set; }
+    public string ProductSn { get; set; }
+    public decimal ProductPrice { get; set; }
+    public decimal Quantity { get; set; }
+    public decimal Price { get; set; }
+    public string Note { get; set; }
+}
+
 public class OrderDetail
 {
     [PrimaryKey, AutoIncrement]
