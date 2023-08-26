@@ -156,6 +156,24 @@ public class MockData : Services.IDataService
 
     }
 
+    public Models.OrderDetailShow GetOrderDetailShow(int orderDetilId)
+    {
+        var orderDetailShow = from orderDetail in orderDetails
+                              join product in goods on orderDetail.ProductId equals product.Id
+                              where orderDetail.Id == orderDetilId
+                              select new Models.OrderDetailShow
+                              {
+                                  OrderDetailId = orderDetail.Id,
+                                  ProductSn = product.Sn,
+                                  ProductPrice = product.Price,
+                                  ProductName = product.Name,
+                                  Quantity = orderDetail.Quantity,
+                                  Price = orderDetail.Price,
+                                  Note = orderDetail.Note
+                              };
+        return orderDetailShow.FirstOrDefault();
+    }
+
     public ObservableCollection<Models.OrderDetailDisplay> GetOrderDetailDisplays(int orderId)
     {
         var orderDetailDisplays = from orderDetail in orderDetails

@@ -12,7 +12,7 @@ public partial class OrderDetailShowPageViewModel : BasePageViewModel
     {
         set
         {
-            //OrderDetailShow = App.DataService.GetOrderDetailShow(value);
+            OrderDetailShow = App.DataService.GetOrderDetailShow(value);
         }
     }
 }

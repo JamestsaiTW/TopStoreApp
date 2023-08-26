@@ -2,8 +2,13 @@ namespace TopStoreApp.Pages;
 
 public partial class OrderDetailShowPage : ContentPage
 {
-	public OrderDetailShowPage()
+	private OrderDetailShowPage()
 	{
 		InitializeComponent();
 	}
+
+    public OrderDetailShowPage(ViewModels.OrderDetailShowPageViewModel orderDetailShowPageViewModel) : this()
+    {
+        BindingContext = orderDetailShowPageViewModel;
+    }
 }
