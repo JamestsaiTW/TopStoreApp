@@ -7,7 +7,7 @@
     xmlns:valueconveters="clr-namespace:TopStoreApp.Utilities.ValueConveters">
     <Application.Resources>
         <ResourceDictionary>
-            <valueconveters:BoolToTwoStringValueConveter x:Key="DetailPageToolBarItemDisplayText" />
+            <valueconveters:BoolToTwoStringValueConverter x:Key="DetailPageToolBarItemDisplayText" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

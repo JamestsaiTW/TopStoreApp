@@ -16,6 +16,12 @@ public partial class OrdersPageViewModel : BasePageViewModel
         //await Shell.Current.DisplayAlert("Order Selected", $"{summaryOrder.Count}", "OK");
         await Shell.Current.GoToAsync($"//Orders/OrderOwners?orderDate={summaryOrder.Summary.Date}");
     }
+
+    [RelayCommand]
+    private async void Add()
+    {
+        await Shell.Current.DisplayAlert("Order Add", $"Start an Order", "OK");
+    }
 }
 
 

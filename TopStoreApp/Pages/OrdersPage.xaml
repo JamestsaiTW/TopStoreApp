@@ -6,6 +6,9 @@
     xmlns:models="clr-namespace:TopStoreApp.Models"
     xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
     x:DataType="viewmodels:OrdersPageViewModel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddCommand}" Text="新增" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <VerticalStackLayout>
             <CollectionView
