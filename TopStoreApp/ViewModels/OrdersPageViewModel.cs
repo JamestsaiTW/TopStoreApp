@@ -20,7 +20,8 @@ public partial class OrdersPageViewModel : BasePageViewModel
     [RelayCommand]
     private async void Add()
     {
-        await Shell.Current.DisplayAlert("Order Add", $"Start an Order", "OK");
+        //await Shell.Current.DisplayAlert("Order Add", $"Start an Order", "OK");
+        await Shell.Current.GoToAsync($"//Orders/People?isOrder=true");
     }
 }
 

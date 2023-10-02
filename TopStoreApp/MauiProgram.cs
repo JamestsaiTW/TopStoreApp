@@ -19,8 +19,8 @@ public static class MauiProgram
 
     private static MauiAppBuilder RegisterAppViewsAndViewModels(this MauiAppBuilder builder)
     {
-        builder.Services.AddSingleton<Pages.PeoplePage>();
-        builder.Services.AddSingleton<ViewModels.PeoplePageViewModel>();
+        builder.Services.AddTransient<Pages.PeoplePage>();
+        builder.Services.AddTransient<ViewModels.PeoplePageViewModel>();
 
         builder.Services.AddSingleton<Pages.GoodsPage>();
         builder.Services.AddSingleton<ViewModels.GoodsPageViewModel>();
