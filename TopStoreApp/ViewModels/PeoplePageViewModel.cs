@@ -10,10 +10,22 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace TopStoreApp.ViewModels;
 
+[QueryProperty(nameof(IsOrderQueryString), "isOrder")]
 public partial class PeoplePageViewModel : BasePageViewModel
 {
     [ObservableProperty]
     private ObservableCollection<Person> _people;
+
+    [ObservableProperty]
+    private bool _isOrder;
+
+    public string IsOrderQueryString
+    {
+        set
+        {
+            IsOrder = bool.Parse(value);
+        }
+    }
 
     [RelayCommand]
     private async void Add()
