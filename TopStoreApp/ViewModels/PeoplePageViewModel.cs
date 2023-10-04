@@ -57,6 +57,14 @@ public partial class PeoplePageViewModel : BasePageViewModel
     }
 
     [RelayCommand]
+    private void MakeOrder(Person person)
+    {
+        var routing = IsOrder ? $"//Orders/People/Goods?personId={person.Id}&isOrder=true" 
+                              : $"//People/Goods?personId={person.Id}&isOrder=true";
+        Shell.Current.GoToAsync(routing);
+    }
+
+    [RelayCommand]
     private async void Search(string keyword)
     {
         var results = App.DataService.GetPeople(keyword);

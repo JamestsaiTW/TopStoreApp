@@ -4,10 +4,22 @@ using System.Collections.ObjectModel;
 
 namespace TopStoreApp.ViewModels;
 
+[QueryProperty(nameof(IsOrderQueryString), "isOrder")]
 public partial class GoodsPageViewModel: BasePageViewModel
 {
     [ObservableProperty]
     private ObservableCollection<Models.Product> _goods;
+
+    [ObservableProperty]
+    private bool _isOrder;
+
+    public string IsOrderQueryString
+    {
+        set
+        {
+            IsOrder = bool.Parse(value);
+        }
+    }
 
     [RelayCommand]
     private async void Add()
