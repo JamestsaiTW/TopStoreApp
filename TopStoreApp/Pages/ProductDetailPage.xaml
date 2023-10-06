@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
     Title="{Binding EditProduct.Name}"
-    x:DataType="viewmodels:ProductDetailPageViewModel">
+    x:DataType="viewmodels:ProductDetailPageViewModel"
+    Shell.TabBarIsVisible="{Binding IsOrder, Converter={StaticResource BoolReverseValueConverter}}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
     </ContentPage.ToolbarItems>

@@ -5,6 +5,7 @@ namespace TopStoreApp.ViewModels;
 
 [QueryProperty(nameof(IsEditQueryString), "isEdit")]
 [QueryProperty(nameof(ProductId), "productId")]
+[QueryProperty(nameof(IsOrderQueryString), "isOrder")]
 public partial class ProductDetailPageViewModel : BasePageViewModel
 {
     [ObservableProperty]
@@ -18,6 +19,17 @@ public partial class ProductDetailPageViewModel : BasePageViewModel
         set
         {
             IsEdit = bool.Parse(value);
+        }
+    }
+
+    [ObservableProperty]
+    private bool _isOrder;
+
+    public string IsOrderQueryString
+    {
+        set
+        {
+            IsOrder = bool.Parse(value);
         }
     }
 
