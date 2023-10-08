@@ -3,12 +3,20 @@
     x:Class="TopStoreApp.Pages.ProductDetailPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customcontrols="clr-namespace:TopStoreApp.CustomControls"
     xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
     Title="{Binding EditProduct.Name}"
     x:DataType="viewmodels:ProductDetailPageViewModel"
     Shell.TabBarIsVisible="{Binding IsOrder, Converter={StaticResource BoolReverseValueConverter}}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
+        <customcontrols:BindableToolbarItem
+            Command="{Binding AddOrderCommand}"
+            IsVisible="{Binding IsOrder}"
+            Text="加訂單" />
+        <customcontrols:BindableToolbarItem
+            Command="{Binding SaveCommand}"
+            IsVisible="{Binding IsOrder, Converter={StaticResource BoolReverseValueConverter}}"
+            Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
     </ContentPage.ToolbarItems>
     <ScrollView>
         <VerticalStackLayout>
@@ -32,7 +40,10 @@
                 Text="{Binding EditProduct.Name}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="NameError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="NameError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -48,7 +59,10 @@
                 Text="{Binding EditProduct.Sn}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="SnError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="SnError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -64,7 +78,10 @@
                 Text="{Binding EditProduct.Msrp}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="MsrpError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="MsrpError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -79,7 +96,10 @@
                 Text="{Binding EditProduct.Price}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="PriceError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="PriceError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -95,7 +115,10 @@
                 Text="{Binding EditProduct.Unit}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="UnitError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="UnitError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -111,7 +134,10 @@
                 Text="{Binding EditProduct.Package}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="PackageError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="PackageError"
+                IsVisible="False"
+                TextColor="Red" />
             <Label
                 HorizontalOptions="StartAndExpand"
                 HorizontalTextAlignment="Start"
@@ -127,7 +153,10 @@
                 Text="{Binding EditProduct.Note}"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center" />
-            <Label x:Name="NoteError" IsVisible="False" TextColor="Red" />
+            <Label
+                x:Name="NoteError"
+                IsVisible="False"
+                TextColor="Red" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

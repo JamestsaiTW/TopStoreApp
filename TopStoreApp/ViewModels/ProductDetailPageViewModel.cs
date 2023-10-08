@@ -68,4 +68,10 @@ public partial class ProductDetailPageViewModel : BasePageViewModel
         }
         IsEdit = !IsEdit;
     }
+
+    [RelayCommand]
+    private async void AddOrder()
+    {
+        await Shell.Current.DisplayAlert("通知", "尚未實作", "OK");
+    }
 }
