@@ -6,6 +6,7 @@ namespace TopStoreApp.ViewModels;
 [QueryProperty(nameof(IsEditQueryString), "isEdit")]
 [QueryProperty(nameof(ProductId), "productId")]
 [QueryProperty(nameof(IsOrderQueryString), "isOrder")]
+[QueryProperty(nameof(PersonIdQueryString), "personId")]
 public partial class ProductDetailPageViewModel : BasePageViewModel
 {
     [ObservableProperty]
@@ -13,6 +14,16 @@ public partial class ProductDetailPageViewModel : BasePageViewModel
 
     [ObservableProperty]
     private bool _isEdit;
+
+    [ObservableProperty]
+    private int _personId;
+    public int PersonIdQueryString
+    {
+        set
+        {
+            PersonId = value;
+        }
+    }
 
     public string IsEditQueryString
     {
@@ -72,6 +83,8 @@ public partial class ProductDetailPageViewModel : BasePageViewModel
     [RelayCommand]
     private async void AddOrder()
     {
-        await Shell.Current.DisplayAlert("通知", "尚未實作", "OK");
+        //await Shell.Current.DisplayAlert("通知", "尚未實作", "OK");
+        var routing = $"{Shell.Current.CurrentState.Location}/AddOrder?productId={EditProduct.Id}&personId={PersonId}";
+        await Shell.Current.GoToAsync(routing);
     }
 }

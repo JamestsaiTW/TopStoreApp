@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TopStoreApp.Pages.AddOrderPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
+    Title="加訂單"
+    x:DataType="viewmodels:AddOrderPageViewModel"
+    Shell.TabBarIsVisible="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding DoneCommand}" Text="完成" />
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label
+            FontSize="Small"
+            HorizontalOptions="StartAndExpand"
+            Text="Order Owner Name"
+            TextColor="Red"
+            VerticalOptions="Center" />
+        <Grid>
+            <Label
+                HorizontalOptions="FillAndExpand"
+                Text="Product SN"
+                VerticalOptions="Center" />
+            <Label
+                HorizontalOptions="End"
+                Text="Product Price"
+                VerticalOptions="Center" />
+        </Grid>
+        <Label
+            FontSize="Large"
+            HorizontalOptions="StartAndExpand"
+            Text="Product Name"
+            VerticalOptions="Center" />
+        <Label
+            HorizontalOptions="StartAndExpand"
+            Text="數量:"
+            VerticalOptions="Center" />
+        <Entry
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="End"
+            Keyboard="Numeric"
+            Placeholder="請輸入購買數量"
+            Text="1"
+            VerticalOptions="Center" />
+        <Label
+            HorizontalOptions="StartAndExpand"
+            Text="售價:"
+            VerticalOptions="Center" />
+        <Entry
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="End"
+            Keyboard="Numeric"
+            Placeholder="請輸入販售價格"
+            Text=""
+            VerticalOptions="Center" />
+        <Label
+            HorizontalOptions="StartAndExpand"
+            Text="備註:"
+            VerticalOptions="Center" />
+        <Entry
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="End"
+            Placeholder="請輸入備註"
+            VerticalOptions="Center" />
+        <Button
+            BackgroundColor="{StaticResource Primary}"
+            Command="{Binding DoneCommand}"
+            HorizontalOptions="Center"
+            Text="完成" />
+    </VerticalStackLayout>
+</ContentPage>
