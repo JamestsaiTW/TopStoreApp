@@ -7,7 +7,6 @@ namespace TopStoreApp.ViewModels;
 [QueryProperty(nameof(ProductId), "productId")]
 [QueryProperty(nameof(IsOrderQueryString), "isOrder")]
 [QueryProperty(nameof(PersonIdQueryString), "personId")]
-[QueryProperty(nameof(OrderId), "orderId")]
 public partial class ProductDetailPageViewModel : BasePageViewModel
 {
     [ObservableProperty]
@@ -55,14 +54,6 @@ public partial class ProductDetailPageViewModel : BasePageViewModel
         }
     }
 
-    private int _orderId;
-
-    public int OrderId
-    {
-        get { return _orderId; }
-        set { _orderId = value; }
-    }
-
     public ProductDetailPageViewModel()
     {
         EditProduct = App.DataService.NewProduct();
@@ -93,14 +84,7 @@ public partial class ProductDetailPageViewModel : BasePageViewModel
     private async void AddOrder()
     {
         //await Shell.Current.DisplayAlert("通知", "尚未實作", "OK");
-
-        if (OrderId == 0)
-        {
-            var order = App.DataService.AddOrder(PersonId);
-            OrderId = order.Id;
-        }
-        var routing = $"{Shell.Current.CurrentState.Location}/AddOrder?" +
-                      $"productId={EditProduct.Id}&personId={PersonId}&orderId={OrderId}";
+        var routing = $"{Shell.Current.CurrentState.Location}/AddOrder?productId={EditProduct.Id}&personId={PersonId}";
         await Shell.Current.GoToAsync(routing);
     }
 }
