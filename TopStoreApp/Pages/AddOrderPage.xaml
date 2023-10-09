@@ -14,23 +14,23 @@
         <Label
             FontSize="Small"
             HorizontalOptions="StartAndExpand"
-            Text="Order Owner Name"
+            Text="{Binding OrderOwner.Name}"
             TextColor="Red"
             VerticalOptions="Center" />
         <Grid>
             <Label
                 HorizontalOptions="FillAndExpand"
-                Text="Product SN"
+                Text="{Binding CurrentProduct.Sn}"
                 VerticalOptions="Center" />
             <Label
                 HorizontalOptions="End"
-                Text="Product Price"
+                Text="{Binding CurrentProduct.Price}"
                 VerticalOptions="Center" />
         </Grid>
         <Label
             FontSize="Large"
             HorizontalOptions="StartAndExpand"
-            Text="Product Name"
+            Text="{Binding CurrentProduct.Name}"
             VerticalOptions="Center" />
         <Label
             HorizontalOptions="StartAndExpand"

@@ -43,6 +43,9 @@ public static class MauiProgram
         builder.Services.AddTransient<Pages.OrderDetailShowPage>();
         builder.Services.AddTransient<ViewModels.OrderDetailShowPageViewModel>();
 
+        builder.Services.AddTransient<Pages.AddOrderPage>();
+        builder.Services.AddTransient<ViewModels.AddOrderPageViewModel>();
+
         return builder;
     }
 

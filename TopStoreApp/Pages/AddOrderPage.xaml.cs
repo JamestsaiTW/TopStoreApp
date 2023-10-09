@@ -2,8 +2,13 @@ namespace TopStoreApp.Pages;
 
 public partial class AddOrderPage : ContentPage
 {
-	public AddOrderPage()
+	private AddOrderPage()
 	{
 		InitializeComponent();
 	}
+
+	public AddOrderPage(ViewModels.AddOrderPageViewModel viewModel) : this()
+	{
+        BindingContext = viewModel;
+    }
 }
