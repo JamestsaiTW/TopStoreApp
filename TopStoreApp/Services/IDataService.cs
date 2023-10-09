@@ -20,4 +20,6 @@ public interface IDataService
     ObservableCollection<Models.OrderOwner> GetOrderOwners(DateTime orderDate);
     ObservableCollection<Models.OrderDetailDisplay> GetOrderDetailDisplays(int orderId);
     Models.OrderDetailShow GetOrderDetailShow(int orderDetilId);
+
+    Models.Order AddOrder(int personId);
 }

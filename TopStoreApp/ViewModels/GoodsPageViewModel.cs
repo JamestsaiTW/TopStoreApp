@@ -7,6 +7,7 @@ namespace TopStoreApp.ViewModels;
 
 [QueryProperty(nameof(IsOrderQueryString), "isOrder")]
 [QueryProperty(nameof(PersonIdQueryString), "personId")]
+[QueryProperty(nameof(OrderId), "orderId")]
 public partial class GoodsPageViewModel: BasePageViewModel
 {
     [ObservableProperty]
@@ -34,6 +35,15 @@ public partial class GoodsPageViewModel: BasePageViewModel
         }
     }
 
+    private int _orderId;
+
+    public int OrderId
+    {
+        get { return _orderId; }
+        set { _orderId = value; }
+    }
+
+
     [RelayCommand]
     private async void Add()
     {
@@ -50,7 +60,7 @@ public partial class GoodsPageViewModel: BasePageViewModel
         //await Shell.Current.GoToAsync($"//Goods/ProductDetail?isEdit=false&productId={product.Id}");
 
         var routing = $"{Shell.Current.CurrentState.Location}/ProductDetail?isEdit=false&productId={product.Id}";
-        routing = IsOrder ? $"{routing}&personId={PersonId}&isOrder=true" : routing;
+        routing = IsOrder ? $"{routing}&personId={PersonId}&orderId={OrderId}&isOrder=true" : routing;
         await Shell.Current.GoToAsync(routing);
     }
 
