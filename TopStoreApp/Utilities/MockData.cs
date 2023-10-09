@@ -156,6 +156,16 @@ public class MockData : Services.IDataService
 
     }
 
+    public int AddOrder(int personId)
+    {
+        var order = new Models.Order() { 
+            Id = orders.Last().Id + 1 , 
+            OrderDate = DateTime.Now, 
+            PersonId = personId };
+        orders.Add(order);
+        return order.Id;
+    }
+
     public Models.OrderDetailShow GetOrderDetailShow(int orderDetilId)
     {
         var orderDetailShow = from orderDetail in orderDetails
@@ -191,9 +201,11 @@ public class MockData : Services.IDataService
 
     public ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
     {
-        var summaryOrders = from order in orders
-                    group order by order.OrderDate.Date into g
-                    select new Models.SummaryOrder { Summary = g.Key, Count = g.Count() };
+        var summaryOrders = (from order in orders
+                             group order by order.OrderDate.Date into g
+                             select new Models.SummaryOrder 
+                             { Summary = g.Key, Count = g.Count() })
+                             .OrderByDescending(x=>x.Summary);
         return new ObservableCollection<Models.SummaryOrder>(summaryOrders);
     }
 

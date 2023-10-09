@@ -1,6 +1,5 @@
 ﻿using SQLite;
 using System.Collections.ObjectModel;
-using TopStoreApp.Models;
 
 namespace TopStoreApp.Services;
 
@@ -22,17 +21,17 @@ public class DbService : IDataService
         throw new NotImplementedException();
     }
 
-    public ObservableCollection<OrderDetailDisplay> GetOrderDetailDisplays(int orderId)
+    public ObservableCollection<Models.OrderDetailDisplay> GetOrderDetailDisplays(int orderId)
     {
         throw new NotImplementedException();
     }
 
-    public ObservableCollection<SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
+    public ObservableCollection<Models.SummaryOrder> GetSummaryOrders(DateTime? dateTime = null)
     {
         throw new NotImplementedException();
     }
 
-    public ObservableCollection<OrderOwner> GetOrderOwners(DateTime orderDate)
+    public ObservableCollection<Models.OrderOwner> GetOrderOwners(DateTime orderDate)
     {
         throw new NotImplementedException();
     }
@@ -90,6 +89,11 @@ public class DbService : IDataService
     }
 
     public Models.Product NewProduct()
+    {
+        throw new NotImplementedException();
+    }
+
+    public int AddOrder(int personId)
     {
         throw new NotImplementedException();
     }
