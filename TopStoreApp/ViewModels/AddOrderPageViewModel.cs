@@ -18,7 +18,12 @@ public partial class AddOrderPageViewModel : BasePageViewModel
         {
             int productId = value;
             if (productId > 0)
+            { 
                 CurrentProduct = App.DataService.GetProduct(productId);
+                SalePrice = CurrentProduct.Price;
+                SaleQuantity = 1;
+                SaleNote = "無";
+            }
         }
     }
 
@@ -44,11 +49,29 @@ public partial class AddOrderPageViewModel : BasePageViewModel
         set { _orderId = value; }
     }
 
+    [ObservableProperty]
+    private decimal _salePrice;
+
+    [ObservableProperty]
+    private int _saleQuantity;
+
+    [ObservableProperty]
+    private string _saleNote;
 
     [RelayCommand]
     private async void Done()
     {
         //Go Back To GoodsPage~~~
+
+        App.DataService.AddOrderDetail(new OrderDetail
+        {
+            OrderId = OrderId,
+            ProductId = CurrentProduct.Id,
+            Quantity = SaleQuantity,
+            Price = SalePrice,
+            Note = SaleNote,  
+        });
+
         var route = $"{Shell.Current.CurrentState.Location}/../..?" +
                     $"isOrder=true&personId={OrderOwner.Id}&orderId={OrderId}";
         await Shell.Current.GoToAsync(route);

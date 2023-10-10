@@ -41,7 +41,7 @@
             HorizontalTextAlignment="End"
             Keyboard="Numeric"
             Placeholder="請輸入購買數量"
-            Text="1"
+            Text="{Binding SaleQuantity}"
             VerticalOptions="Center" />
         <Label
             HorizontalOptions="StartAndExpand"
@@ -52,7 +52,7 @@
             HorizontalTextAlignment="End"
             Keyboard="Numeric"
             Placeholder="請輸入販售價格"
-            Text=""
+            Text="{Binding SalePrice}"
             VerticalOptions="Center" />
         <Label
             HorizontalOptions="StartAndExpand"
@@ -62,6 +62,7 @@
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="End"
             Placeholder="請輸入備註"
+            Text="{Binding SaleNote}"
             VerticalOptions="Center" />
         <Button
             BackgroundColor="{StaticResource Primary}"

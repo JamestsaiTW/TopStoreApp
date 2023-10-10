@@ -22,4 +22,5 @@ public interface IDataService
     Models.OrderDetailShow GetOrderDetailShow(int orderDetilId);
 
     int AddOrder(int personId);
+    int AddOrderDetail(Models.OrderDetail orderDetail);
 }

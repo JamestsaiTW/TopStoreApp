@@ -97,4 +97,9 @@ public class DbService : IDataService
     {
         throw new NotImplementedException();
     }
+
+    public int AddOrderDetail(Models.OrderDetail orderDetail) 
+    {
+        throw new NotImplementedException();
+    }
 }
