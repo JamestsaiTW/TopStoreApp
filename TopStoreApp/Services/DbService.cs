@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System.Collections.ObjectModel;
+using TopStoreApp.Models;
 
 namespace TopStoreApp.Services;
 
@@ -99,6 +100,16 @@ public class DbService : IDataService
     }
 
     public int AddOrderDetail(Models.OrderDetail orderDetail) 
+    {
+        throw new NotImplementedException();
+    }
+
+    public OrderDetail GetOrderDetail(int orderDetailId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int SaveOrderDetail(OrderDetail orderDetail)
     {
         throw new NotImplementedException();
     }

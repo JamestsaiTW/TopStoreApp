@@ -5,9 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:TopStoreApp.Models"
     xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
+    Title="訂單明細-詳細資料"
     x:DataType="viewmodels:OrderDetailShowPageViewModel"
-    Title="Order Detail Show"
+    Shell.PresentationMode="Modal"
     Shell.TabBarIsVisible="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
+    </ContentPage.ToolbarItems>
     <VerticalStackLayout>
         <Label
             FontAttributes="Bold"
@@ -58,7 +62,7 @@
         <Entry
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Start"
-            IsEnabled="False"
+            IsEnabled="{Binding IsEdit}"
             Placeholder="請輸入價格..."
             Text="{Binding OrderDetailShow.Price}"
             VerticalOptions="Center"
@@ -72,7 +76,7 @@
         <Entry
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Start"
-            IsEnabled="False"
+            IsEnabled="{Binding IsEdit}"
             Placeholder="請輸入數量..."
             Text="{Binding OrderDetailShow.Quantity}"
             VerticalOptions="Center"
@@ -86,7 +90,7 @@
         <Entry
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Start"
-            IsEnabled="False"
+            IsEnabled="{Binding IsEdit}"
             Placeholder="請輸入備註..."
             Text="{Binding OrderDetailShow.Note}"
             VerticalOptions="Center"

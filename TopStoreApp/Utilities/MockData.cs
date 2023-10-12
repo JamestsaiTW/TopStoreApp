@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
+using TopStoreApp.Models;
 using TopStoreApp.Pages;
 
 namespace TopStoreApp.Utilities;
@@ -281,4 +282,13 @@ public class MockData : Services.IDataService
         return goods.Remove(product) ? 1 : 0;
     }
 
+    public OrderDetail GetOrderDetail(int orderDetailId)
+    {
+        return orderDetails.FirstOrDefault((orderDetail) => orderDetail.Id == orderDetailId);
+    }
+
+    public int SaveOrderDetail(OrderDetail orderDetail)
+    {
+        return 1;
+    }
 }

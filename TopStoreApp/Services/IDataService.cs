@@ -23,4 +23,7 @@ public interface IDataService
 
     int AddOrder(int personId);
     int AddOrderDetail(Models.OrderDetail orderDetail);
+
+    Models.OrderDetail GetOrderDetail(int orderDetailId);
+    int SaveOrderDetail(Models.OrderDetail orderDetail);
 }

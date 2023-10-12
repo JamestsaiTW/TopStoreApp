@@ -6,13 +6,9 @@
     xmlns:local="clr-namespace:TopStoreApp"
     xmlns:valueconveters="clr-namespace:TopStoreApp.Utilities.ValueConveters">
     <Application.Resources>
-        <ResourceDictionary>
-            <valueconveters:BoolToTwoStringValueConverter x:Key="DetailPageToolBarItemDisplayText" />
-            <valueconveters:BoolReverseValueConverter x:Key="BoolReverseValueConverter" />
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+
+        <valueconveters:BoolToTwoStringValueConverter x:Key="DetailPageToolBarItemDisplayText" />
+        <valueconveters:BoolReverseValueConverter x:Key="BoolReverseValueConverter" />
+
     </Application.Resources>
 </Application>
