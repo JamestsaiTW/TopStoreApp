@@ -7,7 +7,6 @@
     xmlns:viewmodels="clr-namespace:TopStoreApp.ViewModels"
     Title="訂單明細-詳細資料"
     x:DataType="viewmodels:OrderDetailShowPageViewModel"
-    Shell.PresentationMode="Modal"
     Shell.TabBarIsVisible="False">
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding SaveCommand}" Text="{Binding IsEdit, Converter={StaticResource DetailPageToolBarItemDisplayText}, ConverterParameter='儲存,編輯'}" />
