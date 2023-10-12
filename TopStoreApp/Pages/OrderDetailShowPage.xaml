@@ -62,10 +62,15 @@
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Start"
             IsEnabled="{Binding IsEdit}"
+            Keyboard="Numeric"
             Placeholder="請輸入價格..."
             Text="{Binding OrderDetailShow.Price}"
             VerticalOptions="Center"
             VerticalTextAlignment="Center" />
+        <Label
+            x:Name="PriceError"
+            IsVisible="False"
+            TextColor="Red" />
         <Label
             FontAttributes="Bold"
             HorizontalOptions="FillAndExpand"
@@ -76,10 +81,15 @@
             HorizontalOptions="FillAndExpand"
             HorizontalTextAlignment="Start"
             IsEnabled="{Binding IsEdit}"
+            Keyboard="Numeric"
             Placeholder="請輸入數量..."
             Text="{Binding OrderDetailShow.Quantity}"
             VerticalOptions="Center"
             VerticalTextAlignment="Center" />
+        <Label
+            x:Name="QuantityError"
+            IsVisible="False"
+            TextColor="Red" />
         <Label
             FontAttributes="Bold"
             HorizontalOptions="FillAndExpand"

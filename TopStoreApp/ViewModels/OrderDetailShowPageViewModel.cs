@@ -27,14 +27,19 @@ public partial class OrderDetailShowPageViewModel : BasePageViewModel
         if (IsEdit)
         {
             var orderDetail = App.DataService.GetOrderDetail(OrderDetailShow.OrderDetailId);
+
             if (orderDetail != null)
             {
                 orderDetail.Quantity = OrderDetailShow.Quantity;
                 orderDetail.Price = OrderDetailShow.Price;
                 orderDetail.Note = OrderDetailShow.Note;
+
+                var isValid = Utilities.ValidationHelper.IsValid(orderDetail, Shell.Current.CurrentPage);
+                if (!isValid)
+                    return;
+
                 App.DataService.SaveOrderDetail(orderDetail);
             }
-
 
             var isBack = await Shell.Current.DisplayAlert("通知", "儲存成功!",
                                                                 "返回訂單明細列表", "再檢視此筆資料");
@@ -45,5 +50,4 @@ public partial class OrderDetailShowPageViewModel : BasePageViewModel
         }
         IsEdit = !IsEdit;
     }
-
 }

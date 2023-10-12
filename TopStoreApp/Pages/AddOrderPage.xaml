@@ -44,6 +44,10 @@
             Text="{Binding SaleQuantity}"
             VerticalOptions="Center" />
         <Label
+            x:Name="QuantityError"
+            IsVisible="False"
+            TextColor="Red" />
+        <Label
             HorizontalOptions="StartAndExpand"
             Text="售價:"
             VerticalOptions="Center" />
@@ -54,6 +58,10 @@
             Placeholder="請輸入販售價格"
             Text="{Binding SalePrice}"
             VerticalOptions="Center" />
+        <Label
+            x:Name="PriceError"
+            IsVisible="False"
+            TextColor="Red" />
         <Label
             HorizontalOptions="StartAndExpand"
             Text="備註:"

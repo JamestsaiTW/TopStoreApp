@@ -61,17 +61,22 @@ public partial class AddOrderPageViewModel : BasePageViewModel
     [RelayCommand]
     private async void Done()
     {
-        //Go Back To GoodsPage~~~
-
-        App.DataService.AddOrderDetail(new OrderDetail
+        var orderDetail = new OrderDetail
         {
             OrderId = OrderId,
             ProductId = CurrentProduct.Id,
             Quantity = SaleQuantity,
             Price = SalePrice,
             Note = SaleNote,  
-        });
+        };
 
+        var isValid = Utilities.ValidationHelper.IsValid(orderDetail, Shell.Current.CurrentPage);
+        if (!isValid)
+            return;
+
+        App.DataService.AddOrderDetail(orderDetail);
+
+        //Go Back To GoodsPage~~~
         var route = $"{Shell.Current.CurrentState.Location}/../..?" +
                     $"isOrder=true&personId={OrderOwner.Id}&orderId={OrderId}";
         await Shell.Current.GoToAsync(route);
