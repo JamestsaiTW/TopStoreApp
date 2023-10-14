@@ -291,4 +291,9 @@ public class MockData : Services.IDataService
     {
         return 1;
     }
+
+    public int DeleteOrderDetail(int orderDetailId)
+    {
+        return orderDetails.Remove(orderDetails.FirstOrDefault((orderDetail) => orderDetail.Id == orderDetailId)) ? 1 : 0;
+    }
 }

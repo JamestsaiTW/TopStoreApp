@@ -113,4 +113,9 @@ public class DbService : IDataService
     {
         throw new NotImplementedException();
     }
+
+    public int DeleteOrderDetail(int orderDetailId)
+    {
+        throw new NotImplementedException();
+    }
 }

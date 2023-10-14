@@ -26,4 +26,5 @@ public interface IDataService
 
     Models.OrderDetail GetOrderDetail(int orderDetailId);
     int SaveOrderDetail(Models.OrderDetail orderDetail);
+    int DeleteOrderDetail(int orderDetailId);
 }

@@ -52,4 +52,19 @@ public partial class OrderDetailsPageViewModel : BasePageViewModel
         await Shell.Current.GoToAsync($"//Orders/OrderOwners/OrderDetails/OrderDetailShow?" +
                                       $"orderDetailId={orderDetailDisplay.OrderDetailId}");
     }
+
+
+
+    [RelayCommand]
+    private async void Delete(OrderDetailDisplay orderDetailDisplay)
+    {
+        var isDelete = await Shell.Current.DisplayAlert("確定刪除?", orderDetailDisplay.ProductName, 
+                                                        "Yes", "Cancel");
+        if (isDelete)
+        {
+            var deleteSuccess = App.DataService.DeleteOrderDetail(orderDetailDisplay.OrderDetailId);
+            if (deleteSuccess == 1)
+                OrderDetailDisplays.Remove(orderDetailDisplay);
+        }
+    }
 }
